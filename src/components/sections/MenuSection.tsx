@@ -1,0 +1,180 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
+
+const MENU_ITEMS = [
+    {
+        id: "01",
+        title: "Welcoming Appetizers",
+        desc: "An elegant start to your gathering. We serve refined bites featuring authentic Malabar flavors. Our starters keep guests satisfied. Conversations flow seamlessly. Every detail is carefully managed.",
+        img: "/kerala_sadhya.png",
+    },
+    {
+        id: "02",
+        title: "Curated Feast Displays",
+        desc: "Designed as a stunning centerpiece. Our curated displays showcase the richness of Kerala cuisine. We feature specialized live stations. Guests enjoy an interactive dining experience. We bring structured elegance to communal eating.",
+        img: "/kerala_event_setting.png",
+    },
+    {
+        id: "03",
+        title: "Grand Buffet",
+        desc: "Our most extensive offering. We provide a comprehensive journey through local cuisine. Our buffets are ideal for large celebrations. We ensure pristine arrangement and refined presentation. Guests dine with absolute comfort and order.",
+        img: "/elegant_biryani.png",
+    },
+    {
+        id: "04",
+        title: "Traditional & Family Style",
+        desc: "The most authentic way to gather. We offer ceremonial sit-down service. We serve traditional Sadhyas and rich Biryani feasts. We focus on shared experience and composed hospitality. Guests enjoy true culinary heritage.",
+        img: "/kerala_seafood_prep.png",
+    },
+    {
+        id: "05",
+        title: "Plated Elegance",
+        desc: "Our most formal offering. We present professionally arranged dishes. We serve each guest with precision. This menu guarantees structure, polish, and elegance. We execute prestigious events seamlessly.",
+        img: "/composed_hospitality_staff.png",
+    }
+];
+
+export default function MenuSection() {
+    const containerRef = useRef<HTMLElement>(null);
+    const headerRef = useRef<HTMLDivElement>(null);
+    const lineRef = useRef<HTMLHRElement>(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Header & Line smooth fade-in
+        if (headerRef.current && lineRef.current) {
+            gsap.fromTo([headerRef.current, lineRef.current],
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 80%",
+                    }
+                }
+            );
+        }
+
+        // 2. Menu Items Fast Top-to-Bottom Description Reveal
+        const menuBlocks = gsap.utils.toArray<HTMLElement>('.menu-block');
+        menuBlocks.forEach((block) => {
+            const desc = block.querySelector('.menu-desc');
+            const title = block.querySelector('.menu-title');
+            const num = block.querySelector('.menu-num');
+
+            if (desc && title && num) {
+                gsap.fromTo([num, title, desc],
+                    { y: -30, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        stagger: 0.1, // Fast top to bottom cascade for elements inside block
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: block,
+                            start: "top 85%", // Triggers early as it enters screen
+                        }
+                    }
+                );
+            }
+        });
+
+        // 3. Parallax Infinite Image Scrolling
+        // The image physically moves upwards within its overflowing container
+        const images = gsap.utils.toArray<HTMLImageElement>('.menu-image-parallax');
+        images.forEach((img) => {
+            gsap.fromTo(img,
+                { y: "15%" }, // Starts slightly lower
+                {
+                    y: "-15%",  // Moves upward
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true,
+                    }
+                }
+            );
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, []);
+
+    return (
+        <section ref={containerRef} className="py-24 lg:py-32 bg-primary-bg relative z-20">
+            <div className="max-w-[94vw] mx-auto px-4 md:px-0">
+
+                {/* Header Title & Line */}
+                <div ref={headerRef} className="mb-8">
+                    <h2 className="font-serif text-[clamp(50px,8vw,120px)] leading-[1.1] text-primary-text mb-20">
+                        Get-togethers
+                    </h2>
+                    <h3 className="font-sans text-sm font-semibold tracking-wider text-primary-text">
+                        Menu
+                    </h3>
+                </div>
+                <hr ref={lineRef} className="border-t border-primary-text/20 mb-20 md:mb-32" />
+
+                {/* Vertical Menu List Layer */}
+                <div className="grid grid-cols-1 gap-y-32 md:gap-y-40">
+                    {MENU_ITEMS.map((item, index) => (
+                        <div key={item.id} className="menu-block grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 relative">
+
+                            {/* Left Content (Text) */}
+                            <div className="col-span-1 lg:col-span-6 lg:col-start-1 flex flex-col pt-4">
+                                <span className="menu-num font-serif text-2xl opacity-60 mb-6 block text-primary-text">
+                                    {item.id}.
+                                </span>
+
+                                <h2 className="menu-title font-serif text-[clamp(40px,5vw,70px)] leading-[1] tracking-[-0.02em] text-primary-text mb-8">
+                                    {item.title.split(' ').map((word, i) => (
+                                        <span key={i} className="block">{word}</span>
+                                    ))}
+                                </h2>
+
+                                <p className="menu-desc font-sans text-lg leading-relaxed max-w-md mb-8 text-primary-text/80">
+                                    {item.desc}
+                                </p>
+
+                                <div className="menu-desc">
+                                    <Link href="/menu" className="main-button rounded-pill mt-4">
+                                        Check our Menu
+                                    </Link>
+                                </div>
+                            </div>
+
+                            {/* Right Content (Parallax Image) */}
+                            <div className="col-span-1 lg:col-span-6 lg:col-start-7 flex justify-end">
+                                {/* Wrap image in hidden overflow so parallax happens internally */}
+                                <div className="w-full lg:w-[70%] aspect-[3/4] overflow-hidden rounded-[24px] relative">
+                                    <Image
+                                        src={item.img}
+                                        alt={item.title}
+                                        fill
+                                        className="menu-image-parallax object-cover scale-[1.3]" // Scaled up to allow room for parallax movement
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+        </section>
+    );
+}
