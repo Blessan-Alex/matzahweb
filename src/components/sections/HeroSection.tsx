@@ -141,7 +141,7 @@ export default function HeroSection() {
 
             <div
                 ref={maskRef}
-                className="hero-mask z-[2] absolute flex items-center justify-center overflow-hidden w-[clamp(280px,35vw,500px)] h-[clamp(500px,75vh,800px)]"
+                className="hero-mask z-[2] absolute flex items-center justify-center overflow-hidden w-[clamp(240px,35vw,500px)] h-[clamp(380px,70vh,800px)]"
                 style={{ borderRadius: "30%" }}
             >
                 <img
@@ -153,23 +153,17 @@ export default function HeroSection() {
                 />
             </div>
 
-            {/* Bottom Layer: Curved Text Badge outside the Oval edge */}
+            {/* Bottom Layer: Straight Text Badge near the bottom */}
             <div
                 ref={curveTextRef}
-                className="absolute z-[1] bottom-[-22vh] md:bottom-[-20vh] left-1/2 -translate-x-1/2 w-[clamp(450px,50vw,700px)] pointer-events-none"
+                className="absolute z-[1] bottom-[6vh] md:bottom-[8vh] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none"
             >
-                <svg viewBox="0 0 600 200" className="w-full text-[#F0EBE2]">
-                    <path id="curve" fill="transparent" d="M 50, 0 Q 300, 200 550, 0" />
-                    <text
-                        className="text-[14px] md:text-[18px] font-thin tracking-[0.15em] fill-current"
-                        textAnchor="middle"
-                        style={{ fontFamily: 'var(--font-public-sans)' }}
-                    >
-                        <textPath href="#curve" startOffset="50%">
-                            Curated hospitality for refined gatherings
-                        </textPath>
-                    </text>
-                </svg>
+                <p
+                    className="text-[14px] md:text-[18px] font-thin tracking-[0.15em] text-[#F0EBE2] uppercase"
+                    style={{ fontFamily: 'var(--font-public-sans)' }}
+                >
+                    Curated hospitality for every gathering
+                </p>
             </div>
         </section>
     );

@@ -11,31 +11,31 @@ const MENU_ITEMS = [
         id: "01",
         title: "Welcoming Appetizers",
         desc: "An elegant start to your gathering. We serve refined bites featuring authentic Malabar flavors. Our starters keep guests satisfied. Conversations flow seamlessly. Every detail is carefully managed.",
-        img: "/kerala_sadhya.png",
+        img: "/menu_appetizers.png",
     },
     {
         id: "02",
         title: "Curated Feast Displays",
         desc: "Designed as a stunning centerpiece. Our curated displays showcase the richness of Kerala cuisine. We feature specialized live stations. Guests enjoy an interactive dining experience. We bring structured elegance to communal eating.",
-        img: "/kerala_event_setting.png",
+        img: "/menu_feast.png",
     },
     {
         id: "03",
         title: "Grand Buffet",
         desc: "Our most extensive offering. We provide a comprehensive journey through local cuisine. Our buffets are ideal for large celebrations. We ensure pristine arrangement and refined presentation. Guests dine with absolute comfort and order.",
-        img: "/elegant_biryani.png",
+        img: "/menu_buffet.png",
     },
     {
         id: "04",
         title: "Traditional & Family Style",
         desc: "The most authentic way to gather. We offer ceremonial sit-down service. We serve traditional Sadhyas and rich Biryani feasts. We focus on shared experience and composed hospitality. Guests enjoy true culinary heritage.",
-        img: "/kerala_seafood_prep.png",
+        img: "/menu_traditional.png",
     },
     {
         id: "05",
         title: "Plated Elegance",
         desc: "Our most formal offering. We present professionally arranged dishes. We serve each guest with precision. This menu guarantees structure, polish, and elegance. We execute prestigious events seamlessly.",
-        img: "/composed_hospitality_staff.png",
+        img: "/menu_plated.png",
     }
 ];
 
@@ -115,7 +115,7 @@ export default function MenuSection() {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-24 lg:py-32 bg-primary-bg relative z-20">
+        <section ref={containerRef} className="py-16 md:py-24 lg:py-32 bg-primary-bg relative z-20">
             <div className="max-w-[94vw] mx-auto px-4 md:px-0">
 
                 {/* Header Title & Line */}
@@ -130,7 +130,7 @@ export default function MenuSection() {
                 <hr ref={lineRef} className="border-t border-primary-text/20 mb-20 md:mb-32" />
 
                 {/* Vertical Menu List Layer */}
-                <div className="grid grid-cols-1 gap-y-32 md:gap-y-40">
+                <div className="grid grid-cols-1 gap-y-20 md:gap-y-40">
                     {MENU_ITEMS.map((item, index) => (
                         <div key={item.id} className="menu-block grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 relative">
 
@@ -140,7 +140,7 @@ export default function MenuSection() {
                                     {item.id}.
                                 </span>
 
-                                <h2 className="menu-title font-serif text-[clamp(40px,5vw,70px)] leading-[1] tracking-[-0.02em] text-primary-text mb-8">
+                                <h2 className="menu-title font-serif text-[clamp(40px,5vw,70px)] leading-[1.1] md:leading-[1] tracking-[-0.02em] text-primary-text mb-6 md:mb-8">
                                     {item.title.split(' ').map((word, i) => (
                                         <span key={i} className="block">{word}</span>
                                     ))}
@@ -160,7 +160,7 @@ export default function MenuSection() {
                             {/* Right Content (Parallax Image) */}
                             <div className="col-span-1 lg:col-span-6 lg:col-start-7 flex justify-end">
                                 {/* Wrap image in hidden overflow so parallax happens internally */}
-                                <div className="w-full lg:w-[70%] aspect-[3/4] overflow-hidden rounded-[24px] relative">
+                                <div className="w-full lg:w-[70%] aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-[24px] relative mt-4 md:mt-0">
                                     <Image
                                         src={item.img}
                                         alt={item.title}

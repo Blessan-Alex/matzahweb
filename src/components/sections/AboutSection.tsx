@@ -60,7 +60,7 @@ export default function AboutSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative z-10 bg-primary-bg text-primary-text pt-[150px] pb-[150px]"
+            className="relative z-10 bg-primary-bg text-primary-text pt-[100px] md:pt-[150px] pb-[100px] md:pb-[150px]"
         >
             <div className="max-w-[94vw] mx-auto grid grid-cols-1 md:grid-cols-12">
                 <div className="col-span-1 md:col-span-12 lg:col-span-10 lg:col-start-2">

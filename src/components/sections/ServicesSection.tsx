@@ -113,7 +113,7 @@ export default function ServicesSection() {
                         return (
                             <div
                                 key={img.id}
-                                className={`relative rounded-[24px] overflow-hidden shrink-0 ${isPortrait ? 'h-[65vh] aspect-[3/4]' : 'h-[55vh] aspect-[5/4]'
+                                className={`relative rounded-[24px] overflow-hidden shrink-0 ${isPortrait ? 'h-[50vh] md:h-[65vh] aspect-[3/4]' : 'h-[40vh] md:h-[55vh] aspect-[5/4]'
                                     }`}
                             >
                                 <Image

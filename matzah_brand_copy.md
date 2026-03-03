@@ -92,14 +92,7 @@ Our most formal offering. We present professionally arranged dishes. We serve ea
 Check our Menu
 Plated Elegance
 
----
 
-## 4. Testimonials
-• Aravind M | Kochi, Kerala
-• Lakshmi R | Trivandrum, Kerala
-• Rohan C | Calicut, Kerala
-
----
 
 ## 5. Footer / Call to Action
 
