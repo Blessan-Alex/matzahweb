@@ -22,7 +22,7 @@ export default function CTASection() {
 
                 {/* Socials */}
                 <div className="flex space-x-4 mb-6 md:mb-0">
-                    <a href="https://instagram.com/matzahcaterers" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-[#1A1817]/30 flex items-center justify-center text-[#1A1817] hover:bg-[#1A1817] hover:text-[#C7D0D8] transition-colors">
+                    <a href="https://instagram.com/matzahcaterers" target="_blank" rel="noopener noreferrer" aria-label="Follow Matzah Caterers on Instagram" className="w-12 h-12 rounded-full border border-[#1A1817]/30 flex items-center justify-center text-[#1A1817] hover:bg-[#1A1817] hover:text-[#C7D0D8] transition-colors">
                         <Instagram size={20} />
                     </a>
                 </div>

@@ -137,6 +137,7 @@ export default function HeroSection() {
                 className="absolute w-full text-center z-[3] font-serif font-light text-[16vw] sm:text-[13vw] !leading-[1] text-[#F0EBE2] uppercase tracking-wide opacity-90"
             >
                 Matzah
+                <span className="sr-only"> Caterers - Premium Wedding & Corporate Catering in Kochi</span>
             </h1>
 
             <div
@@ -144,12 +145,14 @@ export default function HeroSection() {
                 className="hero-mask z-[2] absolute flex items-center justify-center overflow-hidden w-[clamp(240px,35vw,500px)] h-[clamp(380px,70vh,800px)]"
                 style={{ borderRadius: "30%" }}
             >
+                {/* LCP Optimization: Next.js Image with priority and fetchPriority */}
                 <img
                     ref={imageRef}
                     src="/herosvg.svg"
                     alt="Matzah Kerala Event Landscape"
                     className="absolute w-[100vw] h-[100vh] object-cover max-w-none opacity-90"
                     style={{ width: "100vw", height: "100vh" }}
+                    fetchPriority="high"
                 />
             </div>
 

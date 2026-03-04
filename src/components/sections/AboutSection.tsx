@@ -64,12 +64,15 @@ export default function AboutSection() {
         >
             <div className="max-w-[94vw] mx-auto grid grid-cols-1 md:grid-cols-12">
                 <div className="col-span-1 md:col-span-12 lg:col-span-10 lg:col-start-2">
+                    <h2 className="sr-only">About Matzah Caterers</h2>
                     {/* The elegant sentence-case typography block */}
                     <div ref={textContainerRef} className="font-serif font-normal text-about-text leading-[1.6]">
-                        We are a boutique catering company that serves up thoughtful menus and
-                        moments. Known for personalizing our catering, we craft creative,
-                        tasteful, and intuitive culinary experiences that inspire the way we
-                        gather. Food should be as beautiful as it is delicious.
+                        Matzah Caterers is a premium event catering company based in Kochi, specializing in authentic Kerala cuisine and composed hospitality.
+                        We are a boutique catering company in Kochi with over a decade of experience serving thoughtful menus and
+                        moments. Known for personalizing our catering for high-profile weddings and corporate events, our expert chefs craft creative,
+                        tasteful, and authentic Kerala culinary experiences that inspire the way we gather.
+                        Whether arranging a traditional Sadhya or orchestrating formal plated elegance, we ensure every detail is carefully managed.
+                        Food should be as beautifully presented as it is delicious.
                     </div>
                 </div>
             </div>

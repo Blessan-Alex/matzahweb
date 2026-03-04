@@ -76,7 +76,7 @@ export default function Header() {
                             Get In Touch
                         </button>
                         <button
-                            className="md:hidden transition-opacity duration-200 hover:opacity-60 pointer-events-auto"
+                            className="md:hidden transition-opacity duration-200 hover:opacity-60 pointer-events-auto min-w-[48px] min-h-[48px] flex items-center justify-center p-2"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
                             <Menu size={28} strokeWidth={1.5} />

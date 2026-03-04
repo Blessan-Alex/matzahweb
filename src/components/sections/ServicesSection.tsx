@@ -7,11 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CAROUSEL_IMAGES = [
-    { id: 1, src: "/kerala_sadhya.png", alt: "Authentic Kerala Sadhya" },
-    { id: 2, src: "/elegant_biryani.png", alt: "Elegant Biryani" },
-    { id: 3, src: "/kerala_event_setting.png", alt: "Premium Kochi Event" },
-    { id: 4, src: "/kerala_seafood_prep.png", alt: "Refined Kerala Seafood Prep" },
-    { id: 5, src: "/composed_hospitality_staff.png", alt: "Composed Hospitality Service" },
+    { id: 1, src: "/kerala_sadhya.png", alt: "Authentic Kerala Sadhya Catering Display" },
+    { id: 2, src: "/elegant_biryani.png", alt: "Elegant Biryani Feast for Wedding Receptions" },
+    { id: 3, src: "/kerala_event_setting.png", alt: "Premium Kochi Event Catering Setup" },
+    { id: 4, src: "/kerala_seafood_prep.png", alt: "Refined Kerala Seafood Preparation Live Station" },
+    { id: 5, src: "/composed_hospitality_staff.png", alt: "Professional Hospitality Service Staff for Corporate Events" },
 ];
 
 export default function ServicesSection() {
@@ -90,7 +90,11 @@ export default function ServicesSection() {
             <div className="w-full max-w-[94vw] mx-auto px-4 md:px-0 grid grid-cols-1 md:grid-cols-12 mb-12 md:mb-20 shrink-0 gap-y-6 md:gap-y-0 relative z-30">
                 <div className="col-span-1 md:col-span-5 md:pr-10">
                     <p className="font-sans text-base md:text-lg leading-relaxed text-primary-text/80">
-                        From grand wedding receptions to corporate events, we transform your occasion into a seamless experience. We combine authentic Kerala cuisine with composed hospitality. Our quality connects guests.
+                        From grand wedding receptions to high-profile corporate events and exclusive luxury dining experiences, we transform your occasion into a seamless, unforgettable celebration.
+                        Matzah Caterers combines the authentic, rich heritage of Kerala cuisine with composed, elite hospitality management.
+                        We handle every detail of the culinary experience, ensuring that event planners, hosts, and guests can focus entirely on the celebration.
+                        Our commitment to pristine ingredient sourcing, traditional cooking techniques, and modern presentation creates a dining atmosphere that connects guests and elevates the standard of event catering across Kochi and Ernakulam.
+                        Whether you require an intimate pre-wedding gathering or a comprehensive event management catering solution for hundreds of attendees, our expertise guarantees flawless execution.
                     </p>
                 </div>
                 <div className="col-span-1 md:col-span-3 flex items-start md:mt-0">

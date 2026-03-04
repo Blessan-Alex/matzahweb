@@ -10,31 +10,31 @@ const MENU_ITEMS = [
     {
         id: "01",
         title: "Welcoming Appetizers",
-        desc: "An elegant start to your gathering. We serve refined bites featuring authentic Malabar flavors. Our starters keep guests satisfied. Conversations flow seamlessly. Every detail is carefully managed.",
+        desc: "An elegant start to your gathering. We serve refined, handcrafted bites featuring authentic Malabar spices and fresh local produce. Our expert chefs ensure that every starter keeps guests perfectly satisfied as they arrive. Conversations flow seamlessly alongside these masterfully prepared introductions to our Kochi culinary heritage. Every detail, from the vibrant presentation to the delicate flavor balance, is carefully managed by our hospitality team.",
         img: "/menu_appetizers.png",
     },
     {
         id: "02",
         title: "Curated Feast Displays",
-        desc: "Designed as a stunning centerpiece. Our curated displays showcase the richness of Kerala cuisine. We feature specialized live stations. Guests enjoy an interactive dining experience. We bring structured elegance to communal eating.",
+        desc: "Designed as a stunning visual centerpiece for your event. Our curated displays showcase the immense richness of Kerala cuisine, utilizing premium ingredients and age-old recipes. We feature specialized live-cooking stations where guests can interact directly with our culinary team. Guests enjoy a dynamic, interactive dining experience that brings structured elegance and high-end flair to communal eating.",
         img: "/menu_feast.png",
     },
     {
         id: "03",
         title: "Grand Buffet",
-        desc: "Our most extensive offering. We provide a comprehensive journey through local cuisine. Our buffets are ideal for large celebrations. We ensure pristine arrangement and refined presentation. Guests dine with absolute comfort and order.",
+        desc: "Our most extensive and luxurious offering. We provide a comprehensive culinary journey through exquisite local cuisine and refined international dishes. Our grand buffets are ideal for large-scale wedding receptions and corporate celebrations. We ensure pristine arrangement, spotless presentation, and constantly refreshed stations. Guests dine with absolute comfort, order, and unparalleled variety.",
         img: "/menu_buffet.png",
     },
     {
         id: "04",
         title: "Traditional & Family Style",
-        desc: "The most authentic way to gather. We offer ceremonial sit-down service. We serve traditional Sadhyas and rich Biryani feasts. We focus on shared experience and composed hospitality. Guests enjoy true culinary heritage.",
+        desc: "The most authentic, heartwarming way to gather. We offer a ceremonial sit-down service that honors Kerala's deepest traditions. We serve authentic, multi-course Sadhyas on fresh banana leaves, alongside rich, expertly spiced Biryani feasts. We focus intensely on the shared emotional experience and our signature composed hospitality, ensuring every guest enjoys true culinary heritage exactly as it was meant to be experienced.",
         img: "/menu_traditional.png",
     },
     {
         id: "05",
         title: "Plated Elegance",
-        desc: "Our most formal offering. We present professionally arranged dishes. We serve each guest with precision. This menu guarantees structure, polish, and elegance. We execute prestigious events seamlessly.",
+        desc: "Our most formal, Michelin-inspired catering offering. We present beautifully, professionally arranged dishes course by course. We serve each guest with exact precision and practiced etiquette. This tailored menu guarantees absolute structure, polish, and elite elegance for your most important VIP gatherings. We execute prestigious corporate conclaves and high-society events flawlessly.",
         img: "/menu_plated.png",
     }
 ];
@@ -140,11 +140,11 @@ export default function MenuSection() {
                                     {item.id}.
                                 </span>
 
-                                <h2 className="menu-title font-serif text-[clamp(40px,5vw,70px)] leading-[1.1] md:leading-[1] tracking-[-0.02em] text-primary-text mb-6 md:mb-8">
+                                <h3 className="menu-title font-serif text-[clamp(40px,5vw,70px)] leading-[1.1] md:leading-[1] tracking-[-0.02em] text-primary-text mb-6 md:mb-8">
                                     {item.title.split(' ').map((word, i) => (
                                         <span key={i} className="block">{word}</span>
                                     ))}
-                                </h2>
+                                </h3>
 
                                 <p className="menu-desc font-sans text-lg leading-relaxed max-w-md mb-8 text-primary-text/80">
                                     {item.desc}
