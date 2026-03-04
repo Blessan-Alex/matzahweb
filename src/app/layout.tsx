@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Matzah Caterers | Premium Event Catering in Kochi",
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions, corporate events, and grand celebrations. Elevate your gathering with Matzah.",
-    url: "https://www.matzahcaterers.in",
+    url: "https://matzahcaterers.in",
     siteName: "Matzah Caterers",
     images: [
       {
-        url: "https://www.matzahcaterers.in/kerala_sadhya.png",
+        url: "https://matzahcaterers.in/kerala_sadhya.png",
         width: 1200,
         height: 630,
         alt: "Matzah Caterers - Authentic Kerala Sadhya",
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Matzah Caterers | Premium Event Catering in Kochi",
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions and corporate events.",
-    images: ["https://www.matzahcaterers.in/kerala_sadhya.png"],
+    images: ["https://matzahcaterers.in/kerala_sadhya.png"],
   },
   alternates: {
-    canonical: "https://www.matzahcaterers.in",
+    canonical: "https://matzahcaterers.in",
   },
   icons: {
     icon: "/logosvg.svg",
@@ -57,25 +57,25 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.matzahcaterers.in/#website",
-      "url": "https://www.matzahcaterers.in/",
+      "@id": "https://matzahcaterers.in/#website",
+      "url": "https://matzahcaterers.in/",
       "name": "Matzah Caterers",
       "description": "Premium catering services in Kochi specializing in authentic Kerala cuisine.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://www.matzahcaterers.in/search?q={search_term_string}"
+          "urlTemplate": "https://matzahcaterers.in/search?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": ["FoodEstablishment", "LocalBusiness"],
-      "@id": "https://www.matzahcaterers.in/#organization",
+      "@id": "https://matzahcaterers.in/#organization",
       "name": "Matzah Caterers",
-      "image": "https://www.matzahcaterers.in/kerala_sadhya.png",
-      "url": "https://www.matzahcaterers.in",
+      "image": "https://matzahcaterers.in/kerala_sadhya.png",
+      "url": "https://matzahcaterers.in",
       "telephone": "+918921038043",
       "email": "info@matzahcaterers.com",
       "priceRange": "$$$",

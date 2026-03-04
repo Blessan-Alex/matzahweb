@@ -48,33 +48,33 @@ export default function Header() {
                     <nav className="hidden md:flex items-center gap-8 font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto">
                         {/* Services Dropdown Container */}
                         <div className="group relative">
-                            <a href="#services" className="hover:opacity-70 transition-opacity flex items-center gap-1 cursor-pointer pb-4">
+                            <Link href="/#services" className="hover:opacity-70 transition-opacity flex items-center gap-1 cursor-pointer pb-4">
                                 Services
                                 <span className="transition-transform duration-300 group-hover:rotate-45 block">+</span>
-                            </a>
+                            </Link>
 
                             {/* Dropdown Menu */}
                             <div className="absolute top-[100%] left-0 w-[300px] bg-[#F0EBE2] text-[#1A1817] p-8 rounded-[20px] opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 ease-out flex flex-col gap-3 font-serif font-light text-[22px] md:text-[28px] leading-[1.2]">
-                                <a href="#private-engagements" className="hover:opacity-60 transition-opacity">Private Engagements</a>
-                                <a href="#wedding-receptions" className="hover:opacity-60 transition-opacity">Wedding Receptions</a>
-                                <a href="#corporate-conclaves" className="hover:opacity-60 transition-opacity">Corporate Conclaves</a>
-                                <a href="#grand-celebrations" className="hover:opacity-60 transition-opacity">Grand Celebrations</a>
+                                <Link href="/#private-engagements" className="hover:opacity-60 transition-opacity">Private Engagements</Link>
+                                <Link href="/#wedding-receptions" className="hover:opacity-60 transition-opacity">Wedding Receptions</Link>
+                                <Link href="/#corporate-conclaves" className="hover:opacity-60 transition-opacity">Corporate Conclaves</Link>
+                                <Link href="/#grand-celebrations" className="hover:opacity-60 transition-opacity">Grand Celebrations</Link>
                             </div>
                         </div>
 
-                        <a href="#menu" className="hover:opacity-70 transition-opacity pb-4">
+                        <Link href="/menu" className="hover:opacity-70 transition-opacity pb-4">
                             Menu
-                        </a>
-                        <a href="#about" className="hover:opacity-70 transition-opacity pb-4">
+                        </Link>
+                        <Link href="/about" className="hover:opacity-70 transition-opacity pb-4">
                             About Us
-                        </a>
+                        </Link>
                     </nav>
 
                     {/* CTA Button (Desktop) & Hamburger (Mobile) */}
                     <div className="flex items-center gap-4">
-                        <button className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-primary-bg font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto">
+                        <Link href="/contact" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-primary-bg font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
                             Get In Touch
-                        </button>
+                        </Link>
                         <button
                             className="md:hidden transition-opacity duration-200 hover:opacity-60 pointer-events-auto min-w-[48px] min-h-[48px] flex items-center justify-center p-2"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -93,23 +93,24 @@ export default function Header() {
                 {/* Close Button or leave hamburger to toggle. We'll rely on hamburger since it stays fixed at top right */}
 
                 <nav className="flex flex-col items-center gap-8 font-serif text-[32px] leading-[1.2]">
-                    <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                    <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         Services
-                    </a>
-                    <a href="#menu" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                    </Link>
+                    <Link href="/menu" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         Menu
-                    </a>
-                    <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                    </Link>
+                    <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         About Us
-                    </a>
+                    </Link>
                 </nav>
 
-                <button
+                <Link
+                    href="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="mt-8 px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
+                    className="mt-8 px-8 py-3 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
                 >
                     Get In Touch
-                </button>
+                </Link>
             </div>
         </header>
     );
