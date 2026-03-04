@@ -4,20 +4,33 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Circle, Menu } from "lucide-react";
 
 export default function Header() {
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
+
     const headerRef = useRef<HTMLElement>(null);
     const linksRef = useRef<HTMLDivElement>(null);
-    const [isDarkText, setIsDarkText] = useState(false);
+
+    // Default to dark text if we are NOT on the homepage
+    const [isDarkText, setIsDarkText] = useState(!isHomePage);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
+        // If not on homepage, force dark text and skip ScrollTrigger
+        if (!isHomePage) {
+            setIsDarkText(true);
+            return;
+        }
+
         gsap.registerPlugin(ScrollTrigger);
 
         // Determine if we've scrolled past the hero mask expansion
         // 1200 is the pixel distance defined in HeroSection's scrollTl
         const colorTrigger = ScrollTrigger.create({
+            trigger: document.body,
             start: 1200,
             onEnter: () => setIsDarkText(true),
             onLeaveBack: () => setIsDarkText(false),
@@ -26,7 +39,7 @@ export default function Header() {
         return () => {
             colorTrigger.kill();
         };
-    }, []);
+    }, [isHomePage]);
 
     return (
         <header
@@ -72,7 +85,7 @@ export default function Header() {
 
                     {/* CTA Button (Desktop) & Hamburger (Mobile) */}
                     <div className="flex items-center gap-4">
-                        <Link href="/contact" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-primary-bg font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
+                        <Link href="/contact" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
                             Get In Touch
                         </Link>
                         <button

@@ -3,7 +3,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+import Image from "next/image";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -13,9 +17,7 @@ export default function HeroSection() {
     const curveTextRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
+    useGSAP(() => {
         // 1. Text Split Setup
         let split: SplitType | null = null;
         if (textRef.current) {
@@ -111,10 +113,10 @@ export default function HeroSection() {
 
         return () => {
             window.removeEventListener("preloaderComplete", playEntrance);
-            split?.revert();
+            if (split) split.revert();
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
-    }, []);
+    }, { scope: sectionRef });
 
     return (
         <section

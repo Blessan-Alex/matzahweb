@@ -1,61 +1,53 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function AboutSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const textContainerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
+    useGSAP(() => {
         // 1. Split text into lines for the "wipe" reveal effect
-        let split: SplitType | null = null;
+        if (!textContainerRef.current) return;
 
-        if (textContainerRef.current) {
-            // Split into lines
-            split = new SplitType(textContainerRef.current, { types: 'lines' });
+        const split = new SplitType(textContainerRef.current, { types: 'lines' });
 
-            // Prepare lines for upward fade animation
-            split.lines?.forEach((line) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'overflow-hidden line-wrapper';
-                // Adjust for alignment if needed, inline-block handles it well
-                wrapper.style.display = 'inline-block';
-                wrapper.style.width = '100%';
+        // Prepare lines for upward fade animation
+        split.lines?.forEach((line) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'overflow-hidden line-wrapper';
+            wrapper.style.display = 'inline-block';
+            wrapper.style.width = '100%';
 
-                line.parentNode?.insertBefore(wrapper, line);
-                wrapper.appendChild(line);
+            line.parentNode?.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
 
-                // Initial state: shifted down and invisible
-                gsap.set(line, { y: "100%", opacity: 0 });
+            // Initial state: shifted down and invisible
+            gsap.set(line, { y: "100%", opacity: 0 });
+        });
+
+        // 2. Scroll Scrub Reveal: line by line fade up
+        if (split.lines && split.lines.length > 0) {
+            gsap.to(split.lines, {
+                scrollTrigger: {
+                    trigger: textContainerRef.current,
+                    start: "top 85%", // Starts revealing when section enters the viewport
+                    end: "bottom 50%", // Finishes before the text block reaches halfway up the screen
+                    scrub: 1, // Smooth dragging
+                },
+                y: "0%",
+                opacity: 1,
+                stagger: 0.1, // Cascades down the lines
+                ease: "power2.out"
             });
-
-            // 2. Scroll Scrub Reveal: line by line fade up
-            if (split.lines && split.lines.length > 0) {
-                gsap.to(split.lines, {
-                    scrollTrigger: {
-                        trigger: textContainerRef.current,
-                        start: "top 85%", // Starts revealing when section enters the viewport
-                        end: "bottom 50%", // Finishes before the text block reaches halfway up the screen
-                        scrub: 1, // Smooth dragging
-                    },
-                    y: "0%",
-                    opacity: 1,
-                    stagger: 0.1, // Cascades down the lines
-                    ease: "power2.out"
-                });
-            }
         }
-
-        return () => {
-            split?.revert();
-            ScrollTrigger.getAll().forEach(t => t.kill());
-        };
-    }, []);
+    }, { scope: sectionRef }); // the react GSAP hook automatically reverts everything on unmount!
 
     return (
         <section
