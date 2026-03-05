@@ -81,6 +81,9 @@ export default function Header() {
                         <Link href="/about" className="hover:opacity-70 transition-opacity pb-4">
                             About Us
                         </Link>
+                        <Link href="/blog" className="hover:opacity-70 transition-opacity pb-4">
+                            Blog
+                        </Link>
                     </nav>
 
                     {/* CTA Button (Desktop) & Hamburger (Mobile) */}
@@ -114,6 +117,9 @@ export default function Header() {
                     </Link>
                     <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         About Us
+                    </Link>
+                    <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        Blog
                     </Link>
                 </nav>
 
