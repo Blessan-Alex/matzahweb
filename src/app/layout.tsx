@@ -36,12 +36,7 @@ export const metadata: Metadata = {
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions and corporate events.",
     images: ["https://matzahcaterers.in/kerala_sadhya.png"],
   },
-  alternates: {
-    canonical: "https://matzahcaterers.in",
-  },
-  icons: {
-    icon: "/logosvg.svg",
-  },
+  metadataBase: new URL("https://matzahcaterers.in"),
 };
 
 export const viewport: Viewport = {
@@ -75,6 +70,7 @@ const jsonLd = {
       "@id": "https://matzahcaterers.in/#organization",
       "name": "Matzah Caterers",
       "image": "https://matzahcaterers.in/kerala_sadhya.png",
+      "logo": "https://matzahcaterers.in/icon.svg",
       "url": "https://matzahcaterers.in",
       "telephone": "+918921038043",
       "email": "info@matzahcaterers.com",
