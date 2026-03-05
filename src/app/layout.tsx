@@ -21,10 +21,10 @@ export const metadata: Metadata = {
     siteName: "Matzah Caterers",
     images: [
       {
-        url: "https://matzahcaterers.in/kerala_sadhya.png",
+        url: "https://matzahcaterers.in/buffet.jpg",
         width: 1200,
         height: 630,
-        alt: "Matzah Caterers - Authentic Kerala Sadhya",
+        alt: "Matzah Caterers - Premium Buffet Spread",
       },
     ],
     locale: "en_IN",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Matzah Caterers | Premium Event Catering in Kochi",
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions and corporate events.",
-    images: ["https://matzahcaterers.in/kerala_sadhya.png"],
+    images: ["https://matzahcaterers.in/buffet.jpg"],
   },
   metadataBase: new URL("https://matzahcaterers.in"),
 };
@@ -69,7 +69,7 @@ const jsonLd = {
       "@type": ["FoodEstablishment", "LocalBusiness"],
       "@id": "https://matzahcaterers.in/#organization",
       "name": "Matzah Caterers",
-      "image": "https://matzahcaterers.in/kerala_sadhya.png",
+      "image": "https://matzahcaterers.in/buffet.jpg",
       "logo": "https://matzahcaterers.in/icon.svg",
       "url": "https://matzahcaterers.in",
       "telephone": "+918921038043",
