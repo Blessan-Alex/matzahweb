@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import dynamic from 'next/dynamic';
-
-const AboutSection = dynamic(() => import("@/components/sections/AboutSection"));
+import AboutSection from "@/components/sections/AboutSection";
 
 export const metadata: Metadata = {
     title: "About Us | Matzah Caterers Kochi",

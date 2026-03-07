@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import dynamic from 'next/dynamic';
-
-const MenuSection = dynamic(() => import("@/components/sections/MenuSection"));
+import MenuSection from "@/components/sections/MenuSection";
 
 export const metadata: Metadata = {
     title: "Catering Menu & Services | Matzah Caterers Kochi",

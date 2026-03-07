@@ -1,10 +1,8 @@
-import dynamic from 'next/dynamic';
 import HeroSection from "@/components/sections/HeroSection";
-
-const AboutSection = dynamic(() => import("@/components/sections/AboutSection"));
-const ServicesSection = dynamic(() => import("@/components/sections/ServicesSection"));
-const MenuSection = dynamic(() => import("@/components/sections/MenuSection"));
-const CTASection = dynamic(() => import("@/components/sections/CTASection"));
+import AboutSection from "@/components/sections/AboutSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import MenuSection from "@/components/sections/MenuSection";
+import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
   return (
