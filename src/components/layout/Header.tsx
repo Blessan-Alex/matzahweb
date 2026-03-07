@@ -110,16 +110,16 @@ export default function Header() {
 
                 <nav className="flex flex-col items-center gap-8 font-serif text-[32px] leading-[1.2]">
                     <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
-                        Services
+                        Services<span className="sr-only"> Navigation</span>
                     </Link>
                     <Link href="/menu" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
-                        Menu
+                        Menu<span className="sr-only"> Options</span>
                     </Link>
                     <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
-                        About Us
+                        About Us<span className="sr-only"> Information</span>
                     </Link>
                     <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
-                        Blog
+                        Blog<span className="sr-only"> Articles</span>
                     </Link>
                 </nav>
 
@@ -128,7 +128,7 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="mt-8 px-8 py-3 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
                 >
-                    Get In Touch
+                    Get In Touch<span className="sr-only"> Now</span>
                 </Link>
             </div>
         </header>

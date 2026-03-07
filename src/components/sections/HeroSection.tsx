@@ -139,7 +139,7 @@ export default function HeroSection() {
                 className="absolute w-full text-center z-[3] font-serif font-light text-[16vw] sm:text-[13vw] !leading-[1] text-[#F0EBE2] uppercase tracking-wide opacity-90"
             >
                 Matzah
-                <span className="sr-only"> Caterers - Premium Wedding & Corporate Catering in Kochi</span>
+                <span className="sr-only"> Caterers - Premium Event, Wedding & Corporate Catering in Kochi</span>
             </h1>
 
             <div

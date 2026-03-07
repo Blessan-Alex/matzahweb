@@ -13,7 +13,18 @@ const publicSans = Public_Sans({
 
 export const metadata: Metadata = {
   title: "Matzah Caterers | Premium Event Catering in Kochi",
-  description: "Curated hospitality and authentic Kerala cuisine for wedding receptions, corporate events, and grand celebrations in Kochi. Elevate your gathering with Matzah Caterers.",
+  description: "Authentic Kerala cuisine and premium event catering for weddings and corporate gatherings in Kochi. Elevate your events with Matzah Caterers.",
+  alternates: {
+    canonical: "https://matzahcaterers.in",
+  },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/logo.png' }
+    ],
+  },
   openGraph: {
     title: "Matzah Caterers | Premium Event Catering in Kochi",
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions, corporate events, and grand celebrations. Elevate your gathering with Matzah.",

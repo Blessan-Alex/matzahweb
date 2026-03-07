@@ -152,7 +152,7 @@ export default function MenuSection() {
 
                                 <div className="menu-desc">
                                     <Link href="/menu" className="main-button rounded-pill mt-4">
-                                        Check our Menu
+                                        View {item.title} Options
                                     </Link>
                                 </div>
                             </div>

@@ -99,7 +99,7 @@ export default function ServicesSection() {
                 </div>
                 <div className="col-span-1 md:col-span-3 flex items-start md:mt-0">
                     <Link href="/menu" className="main-button rounded-pill">
-                        Check our Menu
+                        Explore Catering Options
                     </Link>
                 </div>
             </div>
