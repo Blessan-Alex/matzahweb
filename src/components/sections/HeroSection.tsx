@@ -4,27 +4,17 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
-    const textRef = useRef<HTMLHeadingElement>(null);
-    const maskRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLImageElement>(null);
     const curveTextRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        // 1. Text Split Setup
-        let split: SplitType | null = null;
-        if (textRef.current) {
-            split = new SplitType(textRef.current, { types: 'chars' });
-            gsap.set(split.chars, { y: 100, opacity: 0 }); // Initial State
-        }
-
         // 2. Initial State
         gsap.set(imageRef.current, { scale: 1.1 }); // Parallax reverse
         gsap.set(curveTextRef.current, { opacity: 0 }); // Hide curved text initially
@@ -46,19 +36,6 @@ export default function HeroSection() {
                 duration: 1.5,
                 ease: "power3.inOut"
             }, 0);
-
-            // Text Staggers In Smoother
-            if (split?.chars) {
-                tl.fromTo(split.chars,
-                    { y: 100, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 1.0,
-                        stagger: 0.04,
-                        ease: "power4.out"
-                    }, 0.5); // Starts smoother overlapping with mask
-            }
 
             // Finally, fade in the curved text synchronously with the delayed Navbar
             tl.to(curveTextRef.current, {
@@ -94,7 +71,6 @@ export default function HeroSection() {
 
         return () => {
             window.removeEventListener("preloaderComplete", playEntrance);
-            if (split) split.revert();
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, { scope: sectionRef });
@@ -124,21 +100,14 @@ export default function HeroSection() {
                 }}
             />
 
-            {/* Center Main Text */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[3]">
-                 <h1
-                    ref={textRef}
-                    className="font-serif font-light text-[18vw] sm:text-[14vw] !leading-[1] text-[#F0EBE2] uppercase tracking-wide opacity-90"
-                >
-                    Matzah
-                    <span className="sr-only"> Caterers - Premium Event Catering in Kochi – Weddings, Corporates & Sadhya</span>
-                </h1>
-            </div>
+            <h1 className="sr-only">
+                Matzah Caterers - Premium Event Catering in Kochi – Weddings, Corporates & Sadhya
+            </h1>
 
             {/* Bottom Content Area */}
             <div
                 ref={curveTextRef}
-                className="relative z-[10] w-[90%] md:w-[600px] mb-24 md:mb-16 text-center pointer-events-auto flex flex-col items-center"
+                className="relative z-[10] w-[90%] md:w-[600px] pb-[140px] text-center pointer-events-auto flex flex-col items-center"
             >
                 {/* Badge Context */}
                 <span className="inline-block px-4 py-2 bg-[#D4A853]/10 border border-[#D4A853]/30 rounded-full text-[12px] font-semibold tracking-widest text-[#D4A853] uppercase mb-4 backdrop-blur-sm shadow-sm">
@@ -173,10 +142,15 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Animated Scroll Indicator */}
-            <div className="absolute bottom-[2vh] md:bottom-[4vh] left-1/2 -translate-x-1/2 z-[10] flex flex-col items-center gap-2">
+            {/* Animated Scroll Indicator layer is placed over gradient */}
+            <div className="absolute bottom-[60px] left-1/2 -translate-x-1/2 z-[10] flex flex-col items-center gap-2">
                 <span className="block w-[1px] h-8 bg-white/40 animate-[scrollPulse_2s_ease-in-out_infinite]" />
             </div>
+
+            {/* Smooth Extender into Beige Section */}
+            <div className="absolute bottom-0 left-0 right-0 h-[120px] z-[5] pointer-events-none"
+                 style={{ background: 'linear-gradient(to bottom, transparent 0%, #F0EBE2 100%)' }}
+            />
 
             <style dangerouslySetInnerHTML={{__html: `
                 @keyframes scrollPulse {

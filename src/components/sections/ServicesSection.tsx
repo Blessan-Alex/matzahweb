@@ -77,18 +77,18 @@ export default function ServicesSection() {
     return (
         <section id="services-section" ref={sectionRef} className="w-full bg-primary-bg overflow-hidden flex flex-col pt-12 md:pt-20 border-t border-primary-text/20 relative z-20">
             {/* Top Text Content (Unpinned - flows normally) */}
-            <div ref={headerRef} className="w-full max-w-[94vw] mx-auto px-4 md:px-0 grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-y-0 mb-4 md:mb-12 shrink-0">
-                <div className="col-span-1 md:col-span-12 flex justify-between items-end">
-                    <p className="font-sans text-sm tracking-widest uppercase opacity-60">Services Gallery</p>
-                    <Link href="/gallery" className="font-sans text-sm tracking-widest uppercase underline hover:opacity-70 transition-opacity">
+            <div ref={headerRef} className="w-full max-w-[94vw] mx-auto px-4 md:px-0 grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-y-0 mb-6 md:mb-12 shrink-0">
+                <div className="col-span-1 md:col-span-12 flex justify-between items-end gap-4">
+                    <h3 className="font-sans text-sm md:text-base tracking-[0.2em] font-medium uppercase opacity-60">Services Gallery</h3>
+                    <Link href="/gallery" className="font-sans text-[13px] md:text-sm tracking-widest uppercase underline hover:opacity-70 transition-opacity whitespace-nowrap">
                         View All
                     </Link>
                 </div>
             </div>
 
             {/* Pinned Carousel Container */}
-            {/* This full height container triggers the GSAP pin when it reaches the top of the screen */}
-            <div ref={pinContainerRef} className="h-[100svh] w-full flex flex-col justify-center items-start overflow-visible pt-0">
+            {/* Height scales dynamically on mobile so images don't float in dead space */}
+            <div ref={pinContainerRef} className="min-h-[55svh] md:h-[100svh] w-full flex flex-col justify-start md:justify-center items-start overflow-visible pt-2 md:pt-0">
                 <div
                     ref={carouselRef}
                     className="flex gap-4 md:gap-8 px-4 md:px-[3vw] w-max will-change-transform items-center"
