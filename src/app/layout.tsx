@@ -3,6 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Preloader from "@/components/layout/Preloader";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import { Public_Sans } from "next/font/google";
 
 const publicSans = Public_Sans({
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   title: "Matzah Caterers | Premium Event Catering in Kochi",
   description: "Authentic Kerala cuisine and premium event catering for weddings and corporate gatherings in Kochi. Elevate your events with Matzah Caterers.",
   alternates: {
-    canonical: "https://matzahcaterers.in",
+    canonical: "https://www.matzahcaterers.in",
   },
   icons: {
     icon: [
@@ -28,11 +29,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Matzah Caterers | Premium Event Catering in Kochi",
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions, corporate events, and grand celebrations. Elevate your gathering with Matzah.",
-    url: "https://matzahcaterers.in",
+    url: "https://www.matzahcaterers.in",
     siteName: "Matzah Caterers",
     images: [
       {
-        url: "https://matzahcaterers.in/buffet.jpg",
+        url: "https://www.matzahcaterers.in/buffet.jpg",
         width: 1200,
         height: 630,
         alt: "Matzah Caterers - Premium Buffet Spread",
@@ -45,9 +46,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Matzah Caterers | Premium Event Catering in Kochi",
     description: "Curated hospitality and authentic Kerala cuisine for wedding receptions and corporate events.",
-    images: ["https://matzahcaterers.in/buffet.jpg"],
+    images: ["https://www.matzahcaterers.in/buffet.jpg"],
   },
-  metadataBase: new URL("https://matzahcaterers.in"),
+  metadataBase: new URL("https://www.matzahcaterers.in"),
 };
 
 export const viewport: Viewport = {
@@ -63,31 +64,32 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://matzahcaterers.in/#website",
-      "url": "https://matzahcaterers.in/",
+      "@id": "https://www.matzahcaterers.in/#website",
+      "url": "https://www.matzahcaterers.in/",
       "name": "Matzah Caterers",
       "description": "Premium catering services in Kochi specializing in authentic Kerala cuisine.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://matzahcaterers.in/search?q={search_term_string}"
+          "urlTemplate": "https://www.matzahcaterers.in/search?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": ["FoodEstablishment", "LocalBusiness"],
-      "@id": "https://matzahcaterers.in/#organization",
+      "@id": "https://www.matzahcaterers.in/#organization",
       "name": "Matzah Caterers",
-      "image": "https://matzahcaterers.in/buffet.jpg",
-      "logo": "https://matzahcaterers.in/icon.svg",
-      "url": "https://matzahcaterers.in",
+      "image": "https://www.matzahcaterers.in/buffet.jpg",
+      "logo": "https://www.matzahcaterers.in/icon.svg",
+      "url": "https://www.matzahcaterers.in",
       "telephone": "+918921038043",
       "email": "info@matzahcaterers.com",
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Kakkanad",
         "addressLocality": "Kochi",
         "addressRegion": "Kerala",
         "addressCountry": "IN"
@@ -116,6 +118,7 @@ export default function RootLayout({
           <Preloader />
           <Header />
           <main>{children}</main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>

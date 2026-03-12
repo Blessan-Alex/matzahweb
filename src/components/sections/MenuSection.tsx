@@ -163,7 +163,7 @@ export default function MenuSection() {
                                 <div className="w-full lg:w-[70%] aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-[24px] relative mt-4 md:mt-0">
                                     <Image
                                         src={item.img}
-                                        alt={item.title}
+                                        alt={`${item.title} - Matzah Caterers Kochi Event Menu`}
                                         fill
                                         className="menu-image-parallax object-cover scale-[1.3]" // Scaled up to allow room for parallax movement
                                     />

@@ -139,7 +139,7 @@ export default function HeroSection() {
                 className="absolute w-full text-center z-[3] font-serif font-light text-[16vw] sm:text-[13vw] !leading-[1] text-[#F0EBE2] uppercase tracking-wide opacity-90"
             >
                 Matzah
-                <span className="sr-only"> Caterers - Premium Event, Wedding & Corporate Catering in Kochi</span>
+                <span className="sr-only"> Caterers - Premium Event Catering in Kochi – Weddings, Corporates & Sadhya</span>
             </h1>
 
             <div
@@ -151,7 +151,7 @@ export default function HeroSection() {
                 <img
                     ref={imageRef}
                     src="/herosvg.svg"
-                    alt="Matzah Kerala Event Landscape"
+                    alt="Premium Kerala wedding and corporate event catering setup in Kochi by Matzah Caterers"
                     className="absolute w-[100vw] h-[100vh] object-cover max-w-none opacity-90"
                     style={{ width: "100vw", height: "100vh" }}
                     fetchPriority="high"
@@ -161,14 +161,16 @@ export default function HeroSection() {
             {/* Bottom Layer: Straight Text Badge near the bottom */}
             <div
                 ref={curveTextRef}
-                className="absolute z-[1] bottom-[6vh] md:bottom-[8vh] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none"
+                className="absolute z-[10] bottom-[6vh] md:bottom-[8vh] left-1/2 -translate-x-1/2 w-[90%] md:w-auto text-center pointer-events-none"
             >
-                <p
-                    className="text-[14px] md:text-[18px] font-thin tracking-[0.15em] text-[#F0EBE2] uppercase"
-                    style={{ fontFamily: 'var(--font-public-sans)' }}
-                >
-                    Curated hospitality for every gathering
-                </p>
+                <div className="inline-block backdrop-blur-md bg-black/30 border border-[#F0EBE2]/20 rounded-full px-6 py-4 shadow-xl">
+                    <p
+                        className="text-[12px] md:text-[14px] font-medium tracking-[0.1em] text-[#F0EBE2] uppercase leading-relaxed max-w-lg mx-auto"
+                        style={{ fontFamily: 'var(--font-public-sans)' }}
+                    >
+                        Over 15 years crafting authentic Kerala cuisine for weddings, corporate conclaves, and all types of luxury events across Kerala.
+                    </p>
+                </div>
             </div>
         </section>
     );

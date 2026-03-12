@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "Connect with Matzah Caterers to start planning your perfect gathering. Reach out for wedding and corporate event inquiries in Kochi.",
     openGraph: {
         title: "Contact Us | Matzah Caterers Kochi",
-        description: "Let's create your gathering. Contact Matzah Caterers for luxury event catering and hospitality management in Kochi.",
+        description: "Let's create your gathering. Contact Matzah Caterers for luxury event catering and hospitality management in Kochi and Ernakulam.",
         url: "https://matzahcaterers.in/contact",
     },
     alternates: {
@@ -41,8 +41,18 @@ export default function ContactPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            {/* The CTASection already serves as a high-end Contact block with beautiful typography and layout. */}
+            <h1 className="sr-only">Contact Matzah Caterers</h1>
             <CTASection />
+            <div className="w-full bg-[#C7D0D8] pb-24 relative z-10 flex justify-center">
+                <a
+                    href="https://share.google/Xqs02UXrRrvJv9Osd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#1A1817] text-[#F0EBE2] rounded-full font-sans text-[16px] font-medium hover:bg-[#1A1817]/80 transition-colors shadow-lg"
+                >
+                    Visit our Google Business Profile
+                </a>
+            </div>
         </div>
     );
 }

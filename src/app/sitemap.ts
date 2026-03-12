@@ -26,7 +26,7 @@ export const BLOGS = [
     "corporate-event-catering-ideas-kochi"
 ];
 
-const CANONICAL_URL = 'https://matzahcaterers.in';
+const CANONICAL_URL = 'https://www.matzahcaterers.in';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const defaultPages = [

@@ -21,15 +21,23 @@ const jsonLd = {
     "description": "Information about Matzah Caterers experience, expertise, and luxury catering standards in Kochi.",
     "url": "https://matzahcaterers.in/about",
     "mainEntity": {
-        "@type": "FoodEstablishment",
+        "@type": ["FoodEstablishment", "LocalBusiness"],
         "name": "Matzah Caterers",
         "image": "https://matzahcaterers.in/kerala_sadhya.png",
+        "telephone": "+918921038043",
+        "email": "info@matzahcaterers.com",
+        "priceRange": "$$$",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Kochi",
             "addressRegion": "Kerala",
             "addressCountry": "IN"
-        }
+        },
+        "areaServed": ["Kochi", "Ernakulam", "Aluva", "Kakkanad", "Edappally"],
+        "sameAs": [
+            "https://www.instagram.com/matzah_caterers"
+        ],
+        "foundingDate": "2014"
     }
 };
 
@@ -45,6 +53,9 @@ export default function AboutPage() {
                 <h1 className="font-serif text-[clamp(50px,8vw,120px)] leading-[1.1] text-primary-text mb-4">
                     Our Story
                 </h1>
+                <p className="font-sans text-[18px] md:text-[22px] leading-relaxed opacity-80 max-w-3xl mb-12">
+                    Over a decade in Kochi, bringing people together through meticulously crafted food. We are a team of passionate culinary experts dedicated to preserving authentic Kerala traditions while offering premium hospitality management.
+                </p>
                 <hr className="border-t border-primary-text/20 mb-8" />
             </div>
 

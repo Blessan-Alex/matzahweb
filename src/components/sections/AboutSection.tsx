@@ -47,7 +47,12 @@ export default function AboutSection() {
                 ease: "power2.out"
             });
         }
-    }, { scope: sectionRef }); // the react GSAP hook automatically reverts everything on unmount!
+
+        return () => {
+            split.revert();
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, { scope: sectionRef });
 
     return (
         <section
@@ -55,16 +60,28 @@ export default function AboutSection() {
             className="relative z-10 bg-primary-bg text-primary-text pt-[100px] md:pt-[150px] pb-[100px] md:pb-[150px]"
         >
             <div className="max-w-[94vw] mx-auto grid grid-cols-1 md:grid-cols-12">
-                <div className="col-span-1 md:col-span-12 lg:col-span-10 lg:col-start-2">
-                    <h2 className="sr-only">About Matzah Caterers</h2>
+                <div className="col-span-1 md:col-span-6 lg:col-span-5 relative lg:left-[4vw]">
                     {/* The elegant sentence-case typography block */}
-                    <div ref={textContainerRef} className="font-serif font-normal text-about-text leading-[1.6]">
-                        Matzah Caterers is a premium event catering company based in Kochi, specializing in authentic Kerala cuisine and composed hospitality.
-                        We are a boutique catering company in Kochi with over a decade of experience serving thoughtful menus and
-                        moments. Known for personalizing our catering for high-profile weddings and corporate events, our expert chefs craft creative,
-                        tasteful, and authentic Kerala culinary experiences that inspire the way we gather.
-                        Whether arranging a traditional Sadhya or orchestrating formal plated elegance, we ensure every detail is carefully managed.
-                        Food should be as beautifully presented as it is delicious.
+                    <div ref={textContainerRef} className="font-serif leading-[1.1] text-primary-text mb-12 md:mb-0">
+                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block">Elevating</div>
+                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">life&apos;s</div>
+                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">gatherings</div>
+                    </div>
+                </div>
+
+                {/* Body Text Column */}
+                <div className="col-span-1 md:col-span-6 lg:col-span-5 md:pl-[6vw] lg:pl-[2vw] flex flex-col justify-end">
+                    <p className="font-sans font-light text-[16px] md:text-[18px] leading-[1.8] text-primary-text opacity-85">
+                        From grand wedding receptions to high-profile corporate events and exclusive luxury dining experiences, we transform your occasion into a seamless, unforgettable celebration. Matzah Caterers combines the authentic, rich heritage of Kerala cuisine with composed, elite hospitality management.
+                        <br /><br />
+                        We handle every detail of the culinary experience, ensuring that event planners, hosts, and guests can focus entirely on the celebration. Our commitment to pristine ingredient sourcing, traditional cooking techniques, and modern presentation creates a dining atmosphere that connects guests and elevates the standard of event catering across Kochi and Ernakulam.
+                        <br /><br />
+                        Whether you require an intimate pre-wedding gathering or a comprehensive event management catering solution for hundreds of attendees, our expertise guarantees flawless execution.
+                    </p>
+                    <div className="mt-10">
+                        <a href="/menu" className="inline-block px-8 py-3 rounded-full border border-primary-text/30 hover:bg-primary-text hover:text-primary-bg transition-colors duration-300 font-sans text-[14px] uppercase tracking-wider">
+                            Explore Menu
+                        </a>
                     </div>
                 </div>
             </div>

@@ -157,7 +157,7 @@ export default function CorporateEventCateringPost() {
             </p>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/corporate-catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/services/corporate-catering-kochi" className="text-[#D4AF37] font-medium hover:underline">
                     Looking for corporate catering in Kochi? Explore our Corporate Event Catering services.
                 </Link>
             </div>
@@ -314,7 +314,7 @@ export default function CorporateEventCateringPost() {
             </p>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/corporate-catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/services/corporate-catering-kochi" className="text-[#D4AF37] font-medium hover:underline">
                     Need lunch boxes for your next corporate training? We deliver across Kochi. Check our Corporate Catering options.
                 </Link>
             </div>
@@ -359,7 +359,7 @@ export default function CorporateEventCateringPost() {
             </div>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/daily-office-catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/contact" className="text-[#D4AF37] font-medium hover:underline">
                     Running regular office meals? Our daily catering service covers companies across Kochi and Ernakulam. Learn more.
                 </Link>
             </div>

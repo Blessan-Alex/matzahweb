@@ -36,23 +36,23 @@ export async function generateMetadata({
     let description = `Read about ${titleStr.toLowerCase()} in our exclusive catering blog focusing on Kerala Sadhya, weddings, and premium corporate events in Kochi.`;
 
     if (slug === "best-kerala-sadhya-dishes-weddings") {
-        title = "Best Kerala Sadhya Dishes for Weddings | Complete Guide | Matzah Caterers Kochi";
-        description = "Discover the 24 to 28 essential Kerala Sadhya dishes for weddings. Real tips from Kochi caterers on menu planning, portions, and serving. Book authentic Sadhya catering today.";
+        title = "Best Kerala Sadhya Dishes for Weddings | Matzah Caterers";
+        description = "Discover the essential Kerala Sadhya dishes for weddings. Real tips from Kochi caterers on menu planning, portions, and traditional serving.";
     } else if (slug === "how-to-plan-catering-200-person-wedding") {
-        title = "How to Plan Catering for 200 Guests in Kochi | Complete Guide | Matzah Caterers";
-        description = "Planning catering for 200 guests in Kochi? Get real quantity charts, logistics timelines, staffing ratios, and monsoon tips from experienced Kerala caterers. Free quotes available.";
+        title = "Catering for 200 Guests in Kochi Guide | Matzah Caterers";
+        description = "Planning catering for 200 guests in Kochi? Get real quantity charts, logistics timelines, and staffing tips from experienced Kerala caterers.";
     } else if (slug === "kerala-wedding-catering-menu-guide") {
-        title = "Kerala Wedding Catering Menu Guide for Kochi Weddings | Matzah Caterers";
-        description = "Complete guide to planning your Kerala wedding catering menu in Kochi. Sadhya dishes, multi cuisine options, live counters, budget tips, and per plate costs. Free consultation available.";
+        title = "Kerala Wedding Catering Menu Guide | Matzah Caterers";
+        description = "Complete guide to planning your Kerala wedding catering menu. Explore Sadhya dishes, buffet options, live counters, and budget tips in Kochi.";
     } else if (slug === "outdoor-catering-tips-kerala-events") {
-        title = "Outdoor Catering Tips for Kerala Events | Complete Guide | Matzah Caterers";
-        description = "Expert tips for outdoor catering in Kerala. Menu ideas, monsoon proofing, logistics, venue guides, and real event stories from experienced Kochi caterers. Book your outdoor event today.";
+        title = "Outdoor Catering Tips for Kerala Events | Matzah Caterers";
+        description = "Expert tips for outdoor catering in Kerala. Discover menu ideas, monsoon proofing, venue logistics, and real event setups in Kochi.";
     } else if (slug === "buffet-vs-sadhya-catering") {
-        title = "Buffet vs Sadhya Catering: Which Is Right for Your Kerala Event? | Matzah Caterers";
-        description = "Honest comparison of buffet and Sadhya catering for Kerala events. Pros, cons, costs, and when to choose each format. Plus the hybrid approach that gives you both. Free consultation.";
+        title = "Buffet vs Sadhya Catering for Kerala Events | Matzah";
+        description = "Compare buffet and Sadhya catering for Kerala events. Pros, cons, costs, and format choices to help you plan the perfect wedding menu.";
     } else if (slug === "corporate-event-catering-ideas-kochi") {
-        title = "Corporate Event Catering Ideas for Kochi | Menus, Tips & Formats | Matzah Caterers";
-        description = "Creative corporate catering ideas for Kochi events. Kerala heritage menus, mini plates, lunch boxes, and live food stations for conferences, launches, and team celebrations. Get a custom quote.";
+        title = "Corporate Event Catering Ideas in Kochi | Matzah Caterers";
+        description = "Creative corporate catering ideas for Kochi events. Discover Kerala heritage menus, lunch boxes, and live food stations for conferences.";
     }
 
     return {

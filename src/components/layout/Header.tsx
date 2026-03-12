@@ -84,13 +84,19 @@ export default function Header() {
                         <Link href="/blog" className="hover:opacity-70 transition-opacity pb-4">
                             Blog
                         </Link>
+                        <Link href="/gallery" className="hover:opacity-70 transition-opacity pb-4">
+                            Gallery
+                        </Link>
+                        <Link href="/faq" className="hover:opacity-70 transition-opacity pb-4">
+                            FAQs
+                        </Link>
                     </nav>
 
                     {/* CTA Button (Desktop) & Hamburger (Mobile) */}
                     <div className="flex items-center gap-4">
-                        <Link href="/contact" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
+                        <a href="https://wa.me/918921038043" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
                             Get In Touch
-                        </Link>
+                        </a>
                         <button
                             className="md:hidden transition-opacity duration-200 hover:opacity-60 pointer-events-auto min-w-[48px] min-h-[48px] flex items-center justify-center p-2"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -121,15 +127,23 @@ export default function Header() {
                     <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         Blog<span className="sr-only"> Articles</span>
                     </Link>
+                    <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        Gallery<span className="sr-only"> Images</span>
+                    </Link>
+                    <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        FAQs<span className="sr-only"> Questions</span>
+                    </Link>
                 </nav>
 
-                <Link
-                    href="/contact"
+                <a
+                    href="https://wa.me/918921038043"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="mt-8 px-8 py-3 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
                 >
                     Get In Touch<span className="sr-only"> Now</span>
-                </Link>
+                </a>
             </div>
         </header>
     );

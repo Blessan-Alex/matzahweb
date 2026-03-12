@@ -95,7 +95,7 @@ export default function BuffetVsSadhyaPost() {
             </p>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/services/wedding-catering-kochi" className="text-[#D4AF37] font-medium hover:underline">
                     Need help deciding? Our team at Matzah Caterers can design the perfect format for your event. Explore our Catering Services.
                 </Link>
             </div>
@@ -232,7 +232,7 @@ export default function BuffetVsSadhyaPost() {
             </div>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/menu" className="text-[#D4AF37] font-medium hover:underline">
                     Want to see how each format looks in practice? Browse our event gallery and past setups.
                 </Link>
             </div>
@@ -376,7 +376,7 @@ export default function BuffetVsSadhyaPost() {
             </p>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/wedding-catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/services/wedding-catering-kochi" className="text-[#D4AF37] font-medium hover:underline">
                     Interested in a hybrid setup for your event? Let us design a custom plan. Contact Matzah Caterers.
                 </Link>
             </div>

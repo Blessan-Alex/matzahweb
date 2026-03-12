@@ -106,7 +106,7 @@ export default function OutdoorCateringPost() {
             </p>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/outdoor-catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/services/outdoor-catering-kochi" className="text-[#D4AF37] font-medium hover:underline">
                     Planning an outdoor event? Explore our Outdoor Catering services across Kerala.
                 </Link>
             </div>
@@ -358,7 +358,7 @@ export default function OutdoorCateringPost() {
             </div>
 
             <div className="bg-black/5 p-6 rounded-lg my-8 border border-[#D4AF37]/30">
-                <Link href="/services/outdoor-catering" className="text-[#D4AF37] font-medium hover:underline">
+                <Link href="/services/outdoor-catering-kochi" className="text-[#D4AF37] font-medium hover:underline">
                     See how we handle outdoor events in any season. Check our Outdoor Catering page.
                 </Link>
             </div>

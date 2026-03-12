@@ -41,8 +41,10 @@ export default function MenuPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            {/* The MenuSection already contains its own massive header ("Get-Togethers - Menu"). 
-                We can just render it directly here for maximum visual impact. */}
+            <div className="w-full max-w-[94vw] mx-auto px-4 md:px-0 text-center mb-8">
+                <h1 className="sr-only">Catering Menu & Services in Kochi</h1>
+                <p className="font-sans text-sm tracking-widest uppercase opacity-60">Authentic Kerala flavors Kochi</p>
+            </div>
             <MenuSection />
         </div>
     );

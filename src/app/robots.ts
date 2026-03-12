@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: '/',
             }
         ],
-        sitemap: 'https://matzahcaterers.in/sitemap.xml',
+        sitemap: 'https://www.matzahcaterers.in/sitemap.xml',
     };
 }

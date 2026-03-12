@@ -1,131 +1,106 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { locationsData, LocationKey } from '@/data/locations';
+import { servicesData } from '@/data/services';
+import CTASection from '@/components/sections/CTASection';
+import TestimonialSection from '@/components/sections/TestimonialSection';
 
-const LOCATIONS = [
-    "catering-services-kochi",
-    "catering-services-ernakulam",
-    "catering-services-aluva",
-    "catering-services-thrippunithura",
-];
+type Props = {
+    params: { location: string };
+};
 
-function formatTitle(slug: string) {
-    return slug
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const locKey = params.location as LocationKey;
+    const data = locationsData[locKey];
+
+    if (!data) return { title: 'Location Not Found' };
+
+    return {
+        title: `${data.title} | Matzah Caterers`,
+        description: data.metaDesc,
+        alternates: {
+            canonical: `https://matzahcaterers.in/locations/${locKey}`,
+        },
+        openGraph: {
+            title: data.title,
+            description: data.metaDesc,
+            url: `https://matzahcaterers.in/locations/${locKey}`
+        }
+    };
 }
 
-export async function generateStaticParams() {
-    return LOCATIONS.map((location) => ({
-        location,
+export function generateStaticParams() {
+    return Object.keys(locationsData).map((key) => ({
+        location: key,
     }));
 }
 
-export async function generateMetadata({
-    params,
-}: {
-    params: Promise<{ location: string }>;
-}): Promise<Metadata> {
-    const { location } = await params;
-    if (!LOCATIONS.includes(location)) return {};
+export default function LocationPage({ params }: Props) {
+    const locKey = params.location as LocationKey;
+    const data = locationsData[locKey];
 
-    const titleStr = formatTitle(location);
-    const title = `${titleStr} | Premium Events | Matzah Caterers`;
-    const description = `Top-rated ${titleStr.toLowerCase()} for weddings, birthdays, and corporate events. Authentic Kerala Sadhya and custom menus delivered near you.`;
+    if (!data) notFound();
 
-    return {
-        title,
-        description,
-        openGraph: {
-            title,
-            description,
-            url: `https://matzahcaterers.in/locations/${location}`,
-        },
-        alternates: {
-            canonical: `https://matzahcaterers.in/locations/${location}`,
-        },
-    };
-}
-
-export default async function LocationPage({
-    params,
-}: {
-    params: Promise<{ location: string }>;
-}) {
-    const { location } = await params;
-
-    if (!LOCATIONS.includes(location)) {
-        notFound();
-    }
-
-    const title = formatTitle(location);
-    const localityName = title.split(" ").pop() || "the area";
-
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Catering Services",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Matzah Caterers",
-            "image": "https://matzahcaterers.in/kerala_sadhya.png",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": localityName,
-                "addressRegion": "Kerala",
-                "addressCountry": "IN",
-            },
-        },
-        "areaServed": localityName,
-        "description": `Premium catering and hospitality services serving ${localityName} and surrounding regions.`,
-    };
+    // Pull core services to show on location page
+    const services = Object.entries(servicesData);
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-4 md:px-8">
+        <article className="min-h-screen bg-[#F0EBE2] pt-20">
+            {/* Local schema specialized for the area */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "Matzah Caterers",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressRegion": "Kerala",
+                                "addressCountry": "IN"
+                            }
+                        },
+                        "areaServed": data.area,
+                        "serviceType": "Catering"
+                    })
+                }}
             />
-            <div className="max-w-4xl mx-auto">
-                <h1 className="text-4xl md:text-6xl font-light mb-8 text-primary-text">
-                    {title}
-                </h1>
-                <div className="relative w-full h-[400px] mb-12 rounded-xl overflow-hidden">
-                    <Image
-                        src="/kerala_sadhya.png"
-                        alt={`Premium ${title} by Matzah Caterers`}
-                        fill
-                        className="object-cover"
-                        priority
-                    />
-                </div>
-                <div className="prose prose-lg dark:prose-invert max-w-none">
-                    <p className="text-xl md:text-2xl font-light leading-relaxed mb-8">
-                        Looking for exceptional catering near {localityName}? Matzah Caterers is your premier culinary
-                        partner for weddings, corporate gatherings, and private parties in the area.
-                    </p>
-                    <h2 className="text-2xl mt-12 mb-6">Our Services in {localityName}</h2>
-                    <ul className="space-y-4 mb-12">
-                        <li>Authentic Kerala Sadhya Catering</li>
-                        <li>Premium Wedding Receptions</li>
-                        <li>Corporate Event Buffets</li>
-                        <li>Customized Private Dining</li>
-                    </ul>
 
-                    <div className="mt-16 bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-                        <h3 className="text-2xl mb-4">Book Your Event in {localityName}</h3>
-                        <p className="mb-8">Contact our experts today to conceptualize your perfect menu.</p>
-                        <Link
-                            href="/contact"
-                            className="inline-block bg-primary-text text-primary-bg px-8 py-4 rounded-full font-medium hover:scale-105 transition-transform"
-                        >
-                            Contact Us Now
-                        </Link>
-                    </div>
+            <div className="w-full max-w-[94vw] mx-auto pt-16 md:pt-24 px-4 md:px-0 text-center">
+                <h1 className="font-serif text-[clamp(40px,6vw,90px)] leading-[1.1] text-primary-text mb-6">
+                    {data.heading}
+                </h1>
+                <p className="font-sans text-[18px] md:text-[22px] leading-relaxed opacity-80 max-w-3xl mx-auto mb-12">
+                    {data.sub}
+                </p>
+                <hr className="border-t border-primary-text/20 mb-20" />
+            </div>
+
+            {/* List Services Available in this Location */}
+            <div className="w-full max-w-[94vw] mx-auto px-4 md:px-0 mb-20">
+                <h2 className="font-serif text-[clamp(30px,4vw,60px)] leading-[1.1] text-primary-text mb-12 text-center">
+                    Services in {data.area.split(',')[0]}
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {services.map(([sKey, sData]) => (
+                        <div key={sKey} className="bg-white p-8 rounded-[24px] border border-primary-text/10 hover:shadow-xl transition-shadow">
+                            <h3 className="font-serif text-[28px] mb-4 text-primary-text">{sData.title}</h3>
+                            <p className="font-sans text-[16px] opacity-80 mb-6">{sData.intro.slice(0, 120)}...</p>
+                            <Link href={`/services/${sKey}`} className="text-[#D4AF37] font-medium hover:underline flex items-center gap-2">
+                                View Packages
+                                <span>→</span>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
+
+            <TestimonialSection />
+            <CTASection />
+        </article>
     );
 }
