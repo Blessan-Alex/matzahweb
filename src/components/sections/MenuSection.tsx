@@ -119,18 +119,18 @@ export default function MenuSection() {
             <div className="max-w-[94vw] mx-auto px-4 md:px-0">
 
                 {/* Header Title & Line */}
-                <div ref={headerRef} className="mb-8">
-                    <h2 className="font-serif text-[clamp(50px,8vw,120px)] leading-[1.1] text-primary-text mb-20">
+                <div ref={headerRef} className="mb-4 md:mb-8 pt-[6vh]">
+                    <h2 className="font-serif text-[clamp(40px,8vw,120px)] leading-[1.1] text-primary-text mb-4 md:mb-8">
                         Get-togethers
                     </h2>
                     <h3 className="font-sans text-sm font-semibold tracking-wider text-primary-text">
                         Menu
                     </h3>
                 </div>
-                <hr ref={lineRef} className="border-t border-primary-text/20 mb-20 md:mb-32" />
+                <hr ref={lineRef} className="border-t border-primary-text/20 mb-10 md:mb-16" />
 
                 {/* Vertical Menu List Layer */}
-                <div className="grid grid-cols-1 gap-y-20 md:gap-y-40">
+                <div className="grid grid-cols-1 gap-y-16 md:gap-y-32">
                     {MENU_ITEMS.map((item, index) => (
                         <div key={item.id} className="menu-block grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 relative">
 

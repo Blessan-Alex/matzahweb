@@ -18,6 +18,16 @@ export default function Header() {
     const [isDarkText, setIsDarkText] = useState(!isHomePage);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     useEffect(() => {
         // If not on homepage, force dark text and skip ScrollTrigger
         if (!isHomePage) {
@@ -44,7 +54,7 @@ export default function Header() {
     return (
         <header
             ref={headerRef}
-            className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center px-[4vw] py-[3vh] pointer-events-none transition-colors duration-500 ${isDarkText ? "text-[#1A1817]" : "text-[#F0EBE2]"}`}
+            className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center px-[4vw] py-[3vh] pointer-events-none transition-all duration-300 ${isDarkText ? "text-[#1A1817]" : "text-[#F0EBE2]"} ${isScrolled ? "bg-[#1A1817]/95 backdrop-blur-md shadow-md py-[2vh] text-[#F0EBE2]" : ""}`}
         >
             {/* Navbar Content */}
             <div
@@ -98,7 +108,7 @@ export default function Header() {
                             Get In Touch
                         </a>
                         <button
-                            className="md:hidden transition-opacity duration-200 hover:opacity-60 pointer-events-auto min-w-[48px] min-h-[48px] flex items-center justify-center p-2"
+                            className={`md:hidden transition-all duration-200 pointer-events-auto min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-[8px] ${!isScrolled && !isDarkText ? "bg-black/30 backdrop-blur-md" : ""}`}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
                             <Menu size={28} strokeWidth={1.5} />

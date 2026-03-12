@@ -123,13 +123,12 @@ export default function HeroSection() {
             ref={sectionRef}
             className="hero-section relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#1A1817]"
         >
-            {/* Transparent Animated Overlay Layer */}
+            {/* Dark Gradient Overlay Layer for Text Readability */}
             <div
                 ref={overlayRef}
-                className="absolute inset-x-0 inset-y-[-50vh] z-[0] opacity-0 pointer-events-none"
+                className="absolute inset-x-0 inset-y-[-50vh] z-[1] opacity-0 pointer-events-none"
                 style={{
-                    backgroundImage: "radial-gradient(rgba(240, 235, 226, 0.15) 2px, transparent 2px)",
-                    backgroundSize: "30px 30px"
+                    background: "linear-gradient(to bottom, rgba(26,24,23,0.1) 0%, rgba(26,24,23,0.3) 40%, rgba(26,24,23,0.85) 100%)"
                 }}
             />
 

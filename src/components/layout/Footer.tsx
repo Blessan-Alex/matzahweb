@@ -14,7 +14,10 @@ export default function Footer() {
                     <p className="font-sans text-[15px] opacity-80 leading-relaxed max-w-sm mb-6">
                         Premium event catering in Kochi and Ernakulam. Over a decade of crafting authentic Kerala sadhyas and elegant dining experiences for weddings and corporate conclaves.
                     </p>
-                    <Link href="/contact" className="border border-[#F0EBE2] px-6 py-2 rounded-full hover:bg-[#F0EBE2] hover:text-[#1A1817] transition-colors text-[14px]">
+                    <Link 
+                        href="/contact" 
+                        className="w-full md:w-auto text-center bg-gradient-to-br from-[#D4A853] to-[#B8943E] text-[#1a1a1a] font-bold tracking-wide px-8 py-4 rounded-[12px] hover:scale-[0.98] transition-transform shadow-lg"
+                    >
                         Request a Quote
                     </Link>
                 </div>
@@ -22,13 +25,13 @@ export default function Footer() {
                 {/* Service Areas (Local SEO) */}
                 <div className="md:col-span-3 flex flex-col">
                     <h4 className="font-sans tracking-widest text-[13px] uppercase opacity-50 mb-6">Service Areas</h4>
-                    <ul className="flex flex-col gap-3 font-serif text-[18px]">
-                        <li><Link href="/locations/catering-services-kochi" className="hover:opacity-70 transition-opacity">Kochi</Link></li>
-                        <li><Link href="/locations/catering-services-ernakulam" className="hover:opacity-70 transition-opacity">Ernakulam</Link></li>
-                        <li><Link href="/locations/catering-services-kakkanad" className="hover:opacity-70 transition-opacity">Kakkanad</Link></li>
-                        <li><Link href="/locations/catering-services-aluva" className="hover:opacity-70 transition-opacity">Aluva</Link></li>
-                        <li><Link href="/locations/catering-services-edappally" className="hover:opacity-70 transition-opacity">Edappally</Link></li>
-                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                        <Link href="/locations/catering-services-kochi" className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[13px] font-medium text-white/85 tracking-wide">Kochi</Link>
+                        <Link href="/locations/catering-services-ernakulam" className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[13px] font-medium text-white/85 tracking-wide">Ernakulam</Link>
+                        <Link href="/locations/catering-services-kakkanad" className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[13px] font-medium text-white/85 tracking-wide">Kakkanad</Link>
+                        <Link href="/locations/catering-services-aluva" className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[13px] font-medium text-white/85 tracking-wide">Aluva</Link>
+                        <Link href="/locations/catering-services-edappally" className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[13px] font-medium text-white/85 tracking-wide">Edappally</Link>
+                    </div>
                 </div>
 
                 {/* Quick Links */}

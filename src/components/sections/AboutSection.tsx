@@ -64,8 +64,8 @@ export default function AboutSection() {
                     {/* The elegant sentence-case typography block */}
                     <div ref={textContainerRef} className="font-serif leading-[1.1] text-primary-text mb-12 md:mb-0">
                         <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block">Elevating</div>
-                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">life&apos;s</div>
-                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">gatherings</div>
+                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">Life&apos;s</div>
+                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">Gatherings</div>
                     </div>
                 </div>
 
