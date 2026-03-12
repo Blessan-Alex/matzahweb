@@ -5,6 +5,7 @@ import Preloader from "@/components/layout/Preloader";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import StickyBottomBar from "@/components/layout/StickyBottomBar";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import { Public_Sans } from "next/font/google";
 
 const publicSans = Public_Sans({
@@ -114,15 +115,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      {/* Added extra padding bottom for mobile so content doesn't get hidden behind the stickied bottom bar */}
       <body className="antialiased bg-primary-bg text-primary-text md:pb-0 pb-20">
-        <SmoothScroll>
-          <Preloader />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <StickyBottomBar />
-        </SmoothScroll>
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

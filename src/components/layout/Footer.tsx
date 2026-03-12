@@ -3,7 +3,7 @@ import { Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#1A1817] text-[#F0EBE2] pt-20 pb-10 border-t border-[#F0EBE2]/20 relative z-[50]">
+        <footer className="w-full bg-[#1A1817] text-[#F0EBE2] pt-20 pb-32 border-t border-[#F0EBE2]/20 relative z-[50]">
             <div className="max-w-[94vw] mx-auto px-4 md:px-0 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
 
                 {/* Brand & Legacy */}
