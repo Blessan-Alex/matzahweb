@@ -5,13 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Circle, Menu } from "lucide-react";
 
-interface HeaderProps {
-    hidden?: boolean;
-}
-
-export default function Header({ hidden = false }: HeaderProps) {
+export default function Header() {
     const pathname = usePathname();
     const isHomePage = pathname === '/';
 
@@ -55,28 +51,11 @@ export default function Header({ hidden = false }: HeaderProps) {
         };
     }, [isHomePage]);
 
-    // Lock body scroll when mobile menu is open
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-            // Also explicitly lock the html document if needed
-            document.documentElement.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        };
-    }, [isMobileMenuOpen]);
-
     return (
-        <>
-            <header
-                ref={headerRef}
-                className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center px-[4vw] py-[3vh] pointer-events-none transition-all duration-300 ${isDarkText ? "text-[#1A1817]" : "text-[#F0EBE2]"} ${isScrolled ? "bg-[#1A1817]/95 backdrop-blur-md shadow-md py-[2vh] text-[#F0EBE2]" : ""} ${hidden ? "-translate-y-[100%] opacity-0" : "translate-y-0 opacity-100"}`}
-            >
+        <header
+            ref={headerRef}
+            className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center px-[4vw] py-[3vh] pointer-events-none transition-all duration-300 ${isDarkText ? "text-[#1A1817]" : "text-[#F0EBE2]"} ${isScrolled ? "bg-[#1A1817]/95 backdrop-blur-md shadow-md py-[2vh] text-[#F0EBE2]" : ""}`}
+        >
             {/* Navbar Content */}
             <div
                 ref={linksRef}
@@ -129,14 +108,10 @@ export default function Header({ hidden = false }: HeaderProps) {
                             Get In Touch
                         </a>
                         <button
-                            className={`md:hidden transition-all duration-200 pointer-events-auto min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-[8px] z-[10001] relative ${(!isScrolled && !isDarkText) || isMobileMenuOpen ? "bg-black/30 backdrop-blur-md text-[#F0EBE2]" : "text-current"}`}
+                            className={`md:hidden transition-all duration-200 pointer-events-auto min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-[8px] ${!isScrolled && !isDarkText ? "bg-black/30 backdrop-blur-md" : ""}`}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
-                            {isMobileMenuOpen ? (
-                                <X size={28} strokeWidth={1.5} />
-                            ) : (
-                                <Menu size={28} strokeWidth={1.5} />
-                            )}
+                            <Menu size={28} strokeWidth={1.5} />
                         </button>
                     </div>
                 </div>
@@ -144,60 +119,42 @@ export default function Header({ hidden = false }: HeaderProps) {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`fixed inset-0 z-[10000] flex md:hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+                className={`fixed inset-0 bg-[#F0EBE2] text-[#1A1817] z-[9998] flex flex-col justify-center items-center gap-8 transition-transform duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}`}
+                style={{ pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
             >
-                {/* Dark Backdrop */}
-                <div 
-                    className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 ${isMobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+                {/* Close Button or leave hamburger to toggle. We'll rely on hamburger since it stays fixed at top right */}
+
+                <nav className="flex flex-col items-center gap-8 font-serif text-[32px] leading-[1.2]">
+                    <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        Services<span className="sr-only"> Navigation</span>
+                    </Link>
+                    <Link href="/menu" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        Menu<span className="sr-only"> Options</span>
+                    </Link>
+                    <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        About Us<span className="sr-only"> Information</span>
+                    </Link>
+                    <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        Blog<span className="sr-only"> Articles</span>
+                    </Link>
+                    <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        Gallery<span className="sr-only"> Images</span>
+                    </Link>
+                    <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+                        FAQs<span className="sr-only"> Questions</span>
+                    </Link>
+                </nav>
+
+                <a
+                    href="https://wa.me/918921038043"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}
-                />
-
-                {/* Slide-in Panel */}
-                <div 
-                    className={`absolute top-0 right-0 w-[85%] max-w-[360px] h-full bg-[#f8f5f0] text-[#1A1817] flex flex-col pt-[12vh] px-8 pb-10 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full shadow-[-10px_0_30px_rgba(0,0,0,0.1)]"}`}
+                    className="mt-8 px-8 py-3 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
                 >
-                    <nav className="flex flex-col gap-6 font-serif text-[28px] leading-[1.2]">
-                        <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="pb-4 border-b border-[#1A1817]/10 hover:opacity-70 transition-opacity">
-                            Services
-                        </Link>
-                        <Link href="/menu" onClick={() => setIsMobileMenuOpen(false)} className="pb-4 border-b border-[#1A1817]/10 hover:opacity-70 transition-opacity">
-                            Menu
-                        </Link>
-                        <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="pb-4 border-b border-[#1A1817]/10 hover:opacity-70 transition-opacity">
-                            About Us
-                        </Link>
-                        <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="pb-4 border-b border-[#1A1817]/10 hover:opacity-70 transition-opacity">
-                            Blog
-                        </Link>
-                        <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="pb-4 border-b border-[#1A1817]/10 hover:opacity-70 transition-opacity">
-                            Gallery
-                        </Link>
-                        <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="pb-4 border-b border-[#1A1817]/10 hover:opacity-70 transition-opacity">
-                            FAQs
-                        </Link>
-                    </nav>
-
-                    <div className="mt-auto flex flex-col gap-3">
-                        <a
-                            href="https://wa.me/918921038043"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="w-full py-4 flex items-center justify-center rounded-[12px] bg-[#1A1817] text-[#f8f5f0] font-sans text-[16px] font-semibold transition-transform active:scale-95"
-                        >
-                            Get In Touch
-                        </a>
-                        <a
-                            href="tel:+918921038043"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="w-full text-center py-2 text-[#1A1817]/70 font-sans text-[15px] font-medium transition-opacity active:opacity-50"
-                        >
-                            📞 +91 892 103 8043
-                        </a>
-                    </div>
-                </div>
+                    Get In Touch<span className="sr-only"> Now</span>
+                </a>
             </div>
         </header>
-        </>
     );
 }
