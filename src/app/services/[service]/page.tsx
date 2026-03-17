@@ -19,14 +19,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${data.title} | Matzah Caterers Kochi`,
         description: data.metaDesc,
         alternates: {
-            canonical: `https://matzahcaterers.in/services/${serviceKey}`,
+            canonical: `https://www.matzahcaterers.in/services/${serviceKey}`,
         },
         openGraph: {
             title: data.title,
             description: data.metaDesc,
-            images: [data.image],
-            url: `https://matzahcaterers.in/services/${serviceKey}`
-        }
+            images: [
+                {
+                    url: `https://www.matzahcaterers.in${data.image}`,
+                    width: 1200,
+                    height: 630,
+                    alt: data.title,
+                },
+            ],
+            url: `https://www.matzahcaterers.in/services/${serviceKey}`
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: data.title,
+            description: data.metaDesc,
+            images: [`https://www.matzahcaterers.in${data.image}`],
+        },
     };
 }
 
@@ -63,10 +76,30 @@ export default function ServicePage({ params }: Props) {
                             }
                         },
                         "areaServed": "Kochi",
-                        "image": `https://matzahcaterers.in${data.image}`
+                        "image": `https://www.matzahcaterers.in${data.image}`
                     })
                 }}
             />
+            {/* FAQ Schema for rich results */}
+            {data.faqs && data.faqs.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": data.faqs.map((faq: { q: string; a: string }) => ({
+                                "@type": "Question",
+                                "name": faq.q,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.a,
+                                },
+                            })),
+                        })
+                    }}
+                />
+            )}
 
             {/* Hero Section */}
             <div className="w-full max-w-[94vw] mx-auto pt-16 md:pt-24 px-4 md:px-0">
@@ -103,6 +136,7 @@ export default function ServicePage({ params }: Props) {
                     </h2>
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
+                            <caption className="text-left text-sm opacity-60 mb-2">Available serving formats and pricing</caption>
                             <thead>
                                 <tr className="border-b-2 border-primary-text/20">
                                     <th className="py-4 px-6 font-sans font-bold text-[18px]">Format</th>

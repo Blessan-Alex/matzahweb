@@ -199,6 +199,7 @@ export default function CorporateEventCateringPost() {
 
             <div className="overflow-x-auto mb-6 bg-black/5 rounded-xl border border-black/10">
                 <table className="w-full text-left border-collapse">
+                    <caption className="text-left text-sm text-gray-500 mb-2 px-4">Sample Kerala Heritage Menu for 100 guests</caption>
                     <thead>
                         <tr className="bg-[#D4AF37]/10 text-[#D4AF37]">
                             <th className="p-4 border-b border-black/10 font-medium">Course</th>

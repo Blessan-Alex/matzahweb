@@ -20,13 +20,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${data.title} | Matzah Caterers`,
         description: data.metaDesc,
         alternates: {
-            canonical: `https://matzahcaterers.in/locations/${locKey}`,
+            canonical: `https://www.matzahcaterers.in/locations/${locKey}`,
         },
         openGraph: {
             title: data.title,
             description: data.metaDesc,
-            url: `https://matzahcaterers.in/locations/${locKey}`
-        }
+            images: [
+                {
+                    url: "https://www.matzahcaterers.in/buffet.jpg",
+                    width: 1200,
+                    height: 630,
+                    alt: data.title,
+                },
+            ],
+            url: `https://www.matzahcaterers.in/locations/${locKey}`
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: data.title,
+            description: data.metaDesc,
+            images: ["https://www.matzahcaterers.in/buffet.jpg"],
+        },
     };
 }
 
@@ -54,9 +68,13 @@ export default function LocationPage({ params }: Props) {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Service",
+                        "name": `Catering Services in ${data.area.split(',')[0]}`,
+                        "description": data.metaDesc,
+                        "url": `https://www.matzahcaterers.in/locations/${locKey}`,
                         "provider": {
                             "@type": "LocalBusiness",
                             "name": "Matzah Caterers",
+                            "telephone": "+918921038043",
                             "address": {
                                 "@type": "PostalAddress",
                                 "addressRegion": "Kerala",

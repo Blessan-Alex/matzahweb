@@ -6,7 +6,17 @@ import TestimonialSection from "@/components/sections/TestimonialSection";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://www.matzahcaterers.in/#organization",
   "name": "Matzah Caterers",
+  "url": "https://www.matzahcaterers.in",
+  "telephone": "+918921038043",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kakkanad",
+    "addressLocality": "Kochi",
+    "addressRegion": "Kerala",
+    "addressCountry": "IN"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",

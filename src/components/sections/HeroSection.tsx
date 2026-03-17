@@ -13,7 +13,7 @@ export default function HeroSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const textRef = useRef<HTMLHeadingElement>(null);
     const maskRef = useRef<HTMLDivElement>(null);
-    const imageRef = useRef<HTMLImageElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
     const curveTextRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -147,14 +147,20 @@ export default function HeroSection() {
                 style={{ borderRadius: "30%" }}
             >
                 {/* LCP Optimization: Next.js Image with priority and fetchPriority */}
-                <img
+                <div
                     ref={imageRef}
-                    src="/herosvg.svg"
-                    alt="Premium Kerala wedding and corporate event catering setup in Kochi by Matzah Caterers"
-                    className="absolute w-[100vw] h-[100vh] object-cover max-w-none opacity-90"
+                    className="absolute w-[100vw] h-[100vh] max-w-none opacity-90"
                     style={{ width: "100vw", height: "100vh" }}
-                    fetchPriority="high"
-                />
+                >
+                    <Image
+                        src="/herosvg.svg"
+                        alt="Premium Kerala wedding and corporate event catering setup in Kochi by Matzah Caterers"
+                        fill
+                        className="object-cover"
+                        priority
+                        unoptimized
+                    />
+                </div>
             </div>
 
             {/* Bottom Layer: Straight Text Badge near the bottom */}

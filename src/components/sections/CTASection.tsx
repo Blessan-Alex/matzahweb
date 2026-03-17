@@ -1,6 +1,7 @@
 "use client";
 
 import { Instagram } from "lucide-react";
+import Link from "next/link";
 
 export default function CTASection() {
     return (
@@ -12,9 +13,9 @@ export default function CTASection() {
                     Your Gathering
                 </h2>
 
-                <button className="main-button rounded-pill mt-16 !border-[#1A1817]/40 !text-[#1A1817] hover:!bg-[#1A1817] hover:!text-[#C7D0D8] text-lg px-8 py-4">
+                <Link href="/contact" className="main-button rounded-pill mt-16 !border-[#1A1817]/40 !text-[#1A1817] hover:!bg-[#1A1817] hover:!text-[#C7D0D8] text-lg px-8 py-4">
                     Schedule a Call
-                </button>
+                </Link>
             </div>
 
             {/* Bottom Footer Info */}
@@ -22,15 +23,15 @@ export default function CTASection() {
 
                 {/* Socials */}
                 <div className="flex space-x-4 mb-6 md:mb-0">
-                    <a href="https://instagram.com/matzahcaterers" target="_blank" rel="noopener noreferrer" aria-label="Follow Matzah Caterers on Instagram" className="w-12 h-12 rounded-full border border-[#1A1817]/30 flex items-center justify-center text-[#1A1817] hover:bg-[#1A1817] hover:text-[#C7D0D8] transition-colors">
+                    <a href="https://instagram.com/matzahcaterers" target="_blank" rel="noopener noreferrer nofollow" aria-label="Follow Matzah Caterers on Instagram" className="w-12 h-12 rounded-full border border-[#1A1817]/30 flex items-center justify-center text-[#1A1817] hover:bg-[#1A1817] hover:text-[#C7D0D8] transition-colors">
                         <Instagram size={20} />
                     </a>
                 </div>
 
                 {/* Contact Email & Phone */}
                 <div className="text-[#1A1817] font-sans text-sm tracking-wide text-center md:text-left">
-                    <p className="mb-2">For General Inquiries: <span className="font-bold">info@matzahcaterers.com</span></p>
-                    <p>Phone / WhatsApp: <span className="font-bold">+91 8921038043</span></p>
+                    <p className="mb-2">For General Inquiries: <a href="mailto:info@matzahcaterers.com" className="font-bold hover:underline">info@matzahcaterers.com</a></p>
+                    <p>Phone / WhatsApp: <a href="tel:+918921038043" className="font-bold hover:underline">+91 8921038043</a></p>
                 </div>
 
                 {/* Empty div for flex spacing balance on desktop if needed, or we just leave it justify-between */}

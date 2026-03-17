@@ -116,10 +116,15 @@ export default function RootLayout({
       </head>
       {/* Added extra padding bottom for mobile so content doesn't get hidden behind the stickied bottom bar */}
       <body className="antialiased bg-primary-bg text-primary-text md:pb-0 pb-20">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary-text focus:text-primary-bg focus:rounded-md focus:text-sm focus:font-semibold">
+          Skip to main content
+        </a>
         <SmoothScroll>
           <Preloader />
           <Header />
-          <main>{children}</main>
+          <main id="main-content">
+            {children}
+          </main>
           <Footer />
           <StickyBottomBar />
         </SmoothScroll>

@@ -60,14 +60,14 @@ export default function Footer() {
                         </a>
                         <div className="flex items-center gap-3 group mt-2">
                             <MapPin size={18} className="shrink-0" />
-                            <a href="https://maps.google.com/?q=Matzah+Caterers+Kochi" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            <a href="https://maps.google.com/?q=Matzah+Caterers+Kochi" target="_blank" rel="noopener noreferrer nofollow" className="hover:underline">
                                 Kochi, Kerala, India
                             </a>
                         </div>
                     </div>
                     {/* Google Reviews CTA */}
                     <div className="mt-8">
-                        <a href="https://share.google/Xqs02UXrRrvJv9Osd" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-[8px] hover:bg-white/20 transition-colors">
+                        <a href="https://share.google/Xqs02UXrRrvJv9Osd" target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-[8px] hover:bg-white/20 transition-colors">
                             <div className="flex gap-1">
                                 {[1, 2, 3, 4, 5].map((star) => (
                                     <svg key={star} className="w-4 h-4 text-[#Fbbc04] fill-current" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export default function Footer() {
                     © {new Date().getFullYear()} Matzah Caterers. All rights reserved.
                 </p>
                 <div className="flex items-center gap-4">
-                    <a href="https://instagram.com/matzahcaterers" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 transition-opacity p-2 border border-[#F0EBE2]/20 rounded-full">
+                    <a href="https://instagram.com/matzahcaterers" target="_blank" rel="noopener noreferrer nofollow" className="opacity-60 hover:opacity-100 transition-opacity p-2 border border-[#F0EBE2]/20 rounded-full">
                         <Instagram size={18} />
                         <span className="sr-only">Instagram</span>
                     </a>

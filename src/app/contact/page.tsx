@@ -7,10 +7,24 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Contact Us | Matzah Caterers Kochi",
         description: "Let's create your gathering. Contact Matzah Caterers for luxury event catering and hospitality management in Kochi and Ernakulam.",
-        url: "https://matzahcaterers.in/contact",
+        url: "https://www.matzahcaterers.in/contact",
+        images: [
+            {
+                url: "https://www.matzahcaterers.in/buffet.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Contact Matzah Caterers",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Us | Matzah Caterers Kochi",
+        description: "Let's create your gathering. Contact Matzah Caterers for luxury event catering in Kochi.",
+        images: ["https://www.matzahcaterers.in/buffet.jpg"],
     },
     alternates: {
-        canonical: "https://matzahcaterers.in/contact",
+        canonical: "https://www.matzahcaterers.in/contact",
     }
 };
 
@@ -19,7 +33,7 @@ const jsonLd = {
     "@type": "ContactPage",
     "name": "Contact Matzah Caterers",
     "description": "Contact information for Matzah Caterers in Kochi.",
-    "url": "https://matzahcaterers.in/contact",
+    "url": "https://www.matzahcaterers.in/contact",
     "mainEntity": {
         "@type": "FoodEstablishment",
         "name": "Matzah Caterers",
@@ -47,7 +61,7 @@ export default function ContactPage() {
                 <a
                     href="https://share.google/Xqs02UXrRrvJv9Osd"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-[#1A1817] text-[#F0EBE2] rounded-full font-sans text-[16px] font-medium hover:bg-[#1A1817]/80 transition-colors shadow-lg"
                 >
                     Visit our Google Business Profile

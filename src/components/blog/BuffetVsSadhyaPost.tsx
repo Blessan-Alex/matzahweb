@@ -164,6 +164,7 @@ export default function BuffetVsSadhyaPost() {
 
             <div className="overflow-x-auto mb-8 bg-black/5 rounded-xl border border-black/10">
                 <table className="w-full text-left border-collapse">
+                    <caption className="text-left text-sm text-gray-500 mb-2 px-4">Sadhya vs Buffet feature comparison</caption>
                     <thead>
                         <tr className="bg-[#D4AF37]/10 text-[#D4AF37]">
                             <th className="p-4 border-b border-black/10 font-medium">Factor</th>
@@ -348,6 +349,7 @@ export default function BuffetVsSadhyaPost() {
 
             <div className="overflow-x-auto mb-6 bg-black/5 rounded-xl border border-black/10">
                 <table className="w-full text-left border-collapse">
+                    <caption className="text-left text-sm text-gray-500 mb-2 px-4">Cost per plate by catering format (Kochi, 2024)</caption>
                     <thead>
                         <tr className="bg-[#D4AF37]/10 text-[#D4AF37]">
                             <th className="p-4 border-b border-black/10 font-medium">Format</th>

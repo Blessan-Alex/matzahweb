@@ -10,6 +10,15 @@ import OutdoorCateringPost from "@/components/blog/OutdoorCateringPost";
 import BuffetVsSadhyaPost from "@/components/blog/BuffetVsSadhyaPost";
 import CorporateEventCateringPost from "@/components/blog/CorporateEventCateringPost";
 
+const BLOG_DATES: Record<string, { published: string; modified: string }> = {
+    "best-kerala-sadhya-dishes-weddings": { published: "2026-02-03", modified: "2026-02-03" },
+    "how-to-plan-catering-200-person-wedding": { published: "2026-02-10", modified: "2026-02-10" },
+    "kerala-wedding-catering-menu-guide": { published: "2026-02-17", modified: "2026-02-17" },
+    "outdoor-catering-tips-kerala-events": { published: "2026-02-24", modified: "2026-02-24" },
+    "buffet-vs-sadhya-catering": { published: "2026-03-03", modified: "2026-03-03" },
+    "corporate-event-catering-ideas-kochi": { published: "2026-03-10", modified: "2026-03-10" },
+};
+
 function formatTitle(slug: string) {
     return slug
         .split("-")
@@ -62,10 +71,24 @@ export async function generateMetadata({
             title,
             description,
             type: "article",
-            url: `https://matzahcaterers.in/blog/${slug}`,
+            url: `https://www.matzahcaterers.in/blog/${slug}`,
+            images: [
+                {
+                    url: "https://www.matzahcaterers.in/kerala_sadhya.png",
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: ["https://www.matzahcaterers.in/kerala_sadhya.png"],
         },
         alternates: {
-            canonical: `https://matzahcaterers.in/blog/${slug}`,
+            canonical: `https://www.matzahcaterers.in/blog/${slug}`,
         },
     };
 }
@@ -83,25 +106,43 @@ export default async function BlogPostPage({
 
     const title = formatTitle(slug);
 
+    const dates = BLOG_DATES[slug] || { published: "2026-03-01", modified: "2026-03-01" };
+
+    // Generate description for JSON-LD (matching the generateMetadata logic)
+    let jsonLdDescription = `Read about ${title.toLowerCase()} in our exclusive catering blog focusing on Kerala Sadhya, weddings, and premium corporate events in Kochi.`;
+    if (slug === "best-kerala-sadhya-dishes-weddings") jsonLdDescription = "Discover the essential Kerala Sadhya dishes for weddings. Real tips from Kochi caterers on menu planning, portions, and traditional serving.";
+    else if (slug === "how-to-plan-catering-200-person-wedding") jsonLdDescription = "Planning catering for 200 guests in Kochi? Get real quantity charts, logistics timelines, and staffing tips from experienced Kerala caterers.";
+    else if (slug === "kerala-wedding-catering-menu-guide") jsonLdDescription = "Complete guide to planning your Kerala wedding catering menu. Explore Sadhya dishes, buffet options, live counters, and budget tips in Kochi.";
+    else if (slug === "outdoor-catering-tips-kerala-events") jsonLdDescription = "Expert tips for outdoor catering in Kerala. Discover menu ideas, monsoon proofing, venue logistics, and real event setups in Kochi.";
+    else if (slug === "buffet-vs-sadhya-catering") jsonLdDescription = "Compare buffet and Sadhya catering for Kerala events. Pros, cons, costs, and format choices to help you plan the perfect wedding menu.";
+    else if (slug === "corporate-event-catering-ideas-kochi") jsonLdDescription = "Creative corporate catering ideas for Kochi events. Discover Kerala heritage menus, lunch boxes, and live food stations for conferences.";
+
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": title,
-        "image": "https://matzahcaterers.in/kerala_sadhya.png",
+        "description": jsonLdDescription,
+        "url": `https://www.matzahcaterers.in/blog/${slug}`,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://www.matzahcaterers.in/blog/${slug}`
+        },
+        "image": "https://www.matzahcaterers.in/kerala_sadhya.png",
         "author": {
             "@type": "Organization",
             "name": "Matzah Caterers",
-            "url": "https://matzahcaterers.in"
+            "url": "https://www.matzahcaterers.in"
         },
         "publisher": {
             "@type": "Organization",
             "name": "Matzah Caterers",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://matzahcaterers.in/logosvg.svg"
+                "url": "https://www.matzahcaterers.in/logosvg.svg"
             }
         },
-        "datePublished": new Date().toISOString().split("T")[0],
+        "datePublished": dates.published,
+        "dateModified": dates.modified,
     };
 
     return (
@@ -123,19 +164,24 @@ export default async function BlogPostPage({
                 <div className="flex items-center space-x-4 mb-12 text-sm text-gray-400">
                     <span>By Matzah Caterers</span>
                     <span>•</span>
+                    <time dateTime={dates.published}>{new Date(dates.published).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                    <span>•</span>
                     <span>Catering Tips</span>
                 </div>
 
                 {slug !== "best-kerala-sadhya-dishes-weddings" && slug !== "how-to-plan-catering-200-person-wedding" && slug !== "kerala-wedding-catering-menu-guide" && slug !== "outdoor-catering-tips-kerala-events" && slug !== "buffet-vs-sadhya-catering" && slug !== "corporate-event-catering-ideas-kochi" && (
-                    <div className="relative w-full h-[400px] mb-16 rounded-xl overflow-hidden">
-                        <Image
-                            src="/kerala_sadhya.png"
-                            alt={title}
-                            fill
+                    <figure className="mb-16">
+                        <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
+                            <Image
+                                src="/kerala_sadhya.png"
+                                alt={title}
+                                fill
                             className="object-cover"
                             priority
                         />
-                    </div>
+                        </div>
+                        <figcaption className="text-center text-sm text-gray-400 mt-3">{title}</figcaption>
+                    </figure>
                 )}
 
                 <div className="prose prose-lg dark:prose-invert prose-headings:font-light prose-a:text-[#D4AF37] max-w-none">

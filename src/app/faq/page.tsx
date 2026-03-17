@@ -8,10 +8,24 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Catering FAQs | Matzah Caterers Kochi",
         description: "Answers to common questions about premium catering services, costs, and menus for weddings and corporate events in Kochi.",
-        url: "https://matzahcaterers.in/faq",
+        url: "https://www.matzahcaterers.in/faq",
+        images: [
+            {
+                url: "https://www.matzahcaterers.in/buffet.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Matzah Caterers - FAQs",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Catering FAQs | Matzah Caterers Kochi",
+        description: "Answers to common questions about premium catering services, costs, and menus in Kochi.",
+        images: ["https://www.matzahcaterers.in/buffet.jpg"],
     },
     alternates: {
-        canonical: "https://matzahcaterers.in/faq",
+        canonical: "https://www.matzahcaterers.in/faq",
     }
 };
 
@@ -103,6 +117,7 @@ export default function FAQPage() {
                     </p>
                 </div>
 
+                <h2 className="font-serif text-[32px] md:text-[40px] text-[#1A1817] mb-8">Common Questions</h2>
                 <FAQAccordion items={faqs} />
 
                 <div className="mt-20 text-center">

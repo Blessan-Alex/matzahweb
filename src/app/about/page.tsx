@@ -7,10 +7,24 @@ export const metadata: Metadata = {
     openGraph: {
         title: "About Us | Matzah Caterers Kochi",
         description: "Matzah Caterers is a boutique catering company in Kochi with over a decade of experience serving thoughtful menus and moments.",
-        url: "https://matzahcaterers.in/about",
+        url: "https://www.matzahcaterers.in/about",
+        images: [
+            {
+                url: "https://www.matzahcaterers.in/kerala_sadhya.png",
+                width: 1200,
+                height: 630,
+                alt: "Matzah Caterers - About Us",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "About Us | Matzah Caterers Kochi",
+        description: "Matzah Caterers is a boutique catering company in Kochi with over a decade of experience serving thoughtful menus and moments.",
+        images: ["https://www.matzahcaterers.in/kerala_sadhya.png"],
     },
     alternates: {
-        canonical: "https://matzahcaterers.in/about",
+        canonical: "https://www.matzahcaterers.in/about",
     }
 };
 
@@ -19,11 +33,11 @@ const jsonLd = {
     "@type": "AboutPage",
     "name": "About Matzah Caterers",
     "description": "Information about Matzah Caterers experience, expertise, and luxury catering standards in Kochi.",
-    "url": "https://matzahcaterers.in/about",
+    "url": "https://www.matzahcaterers.in/about",
     "mainEntity": {
         "@type": ["FoodEstablishment", "LocalBusiness"],
         "name": "Matzah Caterers",
-        "image": "https://matzahcaterers.in/kerala_sadhya.png",
+        "image": "https://www.matzahcaterers.in/kerala_sadhya.png",
         "telephone": "+918921038043",
         "email": "info@matzahcaterers.com",
         "priceRange": "$$$",
@@ -35,7 +49,7 @@ const jsonLd = {
         },
         "areaServed": ["Kochi", "Ernakulam", "Aluva", "Kakkanad", "Edappally"],
         "sameAs": [
-            "https://www.instagram.com/matzah_caterers"
+            "https://www.instagram.com/matzahcaterers"
         ],
         "foundingDate": "2014"
     }

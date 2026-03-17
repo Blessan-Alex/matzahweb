@@ -132,7 +132,7 @@ export default function MenuSection() {
                 {/* Vertical Menu List Layer */}
                 <div className="grid grid-cols-1 gap-y-16 md:gap-y-32">
                     {MENU_ITEMS.map((item, index) => (
-                        <div key={item.id} className="menu-block grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 relative">
+                        <div key={item.id} id={`menu-${item.id}`} className="menu-block grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 relative">
 
                             {/* Left Content (Text) */}
                             <div className="col-span-1 lg:col-span-6 lg:col-start-1 flex flex-col pt-4">
@@ -151,7 +151,7 @@ export default function MenuSection() {
                                 </p>
 
                                 <div className="menu-desc">
-                                    <Link href="/menu" className="main-button rounded-pill mt-4">
+                                    <Link href={`/services/wedding-catering-kochi`} className="main-button rounded-pill mt-4">
                                         View {item.title} Options
                                     </Link>
                                 </div>

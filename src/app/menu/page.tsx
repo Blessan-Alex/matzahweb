@@ -7,10 +7,24 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Catering Menu & Services | Matzah Caterers Kochi",
         description: "Explore our curated event catering menus, featuring authentic Kerala cuisine and Michelin-inspired arrangements.",
-        url: "https://matzahcaterers.in/menu",
+        url: "https://www.matzahcaterers.in/menu",
+        images: [
+            {
+                url: "https://www.matzahcaterers.in/menu_feast.png",
+                width: 1200,
+                height: 630,
+                alt: "Matzah Caterers - Event Catering Menu",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Catering Menu & Services | Matzah Caterers Kochi",
+        description: "Explore our curated event catering menus, featuring authentic Kerala cuisine.",
+        images: ["https://www.matzahcaterers.in/menu_feast.png"],
     },
     alternates: {
-        canonical: "https://matzahcaterers.in/menu",
+        canonical: "https://www.matzahcaterers.in/menu",
     }
 };
 
@@ -19,7 +33,7 @@ const jsonLd = {
     "@type": "Menu",
     "name": "Matzah Caterers Event Menu",
     "description": "Complete list of catering services including Welcome Appetizers, Curated Feast Displays, Grand Buffets, and Traditional Sadhyas.",
-    "url": "https://matzahcaterers.in/menu",
+    "url": "https://www.matzahcaterers.in/menu",
     "hasMenuSection": [
         {
             "@type": "MenuSection",

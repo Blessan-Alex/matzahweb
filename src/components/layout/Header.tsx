@@ -68,7 +68,7 @@ export default function Header() {
 
                 <div className="flex items-center gap-4 md:gap-10">
                     {/* Navigation Links (Desktop) */}
-                    <nav className="hidden md:flex items-center gap-8 font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto">
+                    <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8 font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto">
                         {/* Services Dropdown Container */}
                         <div className="group relative">
                             <Link href="/#services" className="hover:opacity-70 transition-opacity flex items-center gap-1 cursor-pointer pb-4">
@@ -104,7 +104,7 @@ export default function Header() {
 
                     {/* CTA Button (Desktop) & Hamburger (Mobile) */}
                     <div className="flex items-center gap-4">
-                        <a href="https://wa.me/918921038043" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
+                        <a href="https://wa.me/918921038043" target="_blank" rel="noopener noreferrer nofollow" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
                             Get In Touch
                         </a>
                         <button
@@ -124,7 +124,7 @@ export default function Header() {
             >
                 {/* Close Button or leave hamburger to toggle. We'll rely on hamburger since it stays fixed at top right */}
 
-                <nav className="flex flex-col items-center gap-8 font-serif text-[32px] leading-[1.2]">
+                <nav aria-label="Mobile navigation" className="flex flex-col items-center gap-8 font-serif text-[32px] leading-[1.2]">
                     <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         Services<span className="sr-only"> Navigation</span>
                     </Link>
@@ -148,7 +148,7 @@ export default function Header() {
                 <a
                     href="https://wa.me/918921038043"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="mt-8 px-8 py-3 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
                 >

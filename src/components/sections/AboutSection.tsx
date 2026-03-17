@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -62,11 +63,11 @@ export default function AboutSection() {
             <div className="max-w-[94vw] mx-auto grid grid-cols-1 md:grid-cols-12">
                 <div className="col-span-1 md:col-span-6 lg:col-span-5 relative lg:left-[4vw]">
                     {/* The elegant sentence-case typography block */}
-                    <div ref={textContainerRef} className="font-serif leading-[1.1] text-primary-text mb-12 md:mb-0">
-                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block">Elevating</div>
-                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">Life&apos;s</div>
-                        <div className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">Gatherings</div>
-                    </div>
+                    <h2 ref={textContainerRef} className="font-serif leading-[1.1] text-primary-text mb-12 md:mb-0">
+                        <span className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block">Elevating</span>
+                        <span className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">Life&apos;s</span>
+                        <span className="text-[clamp(50px,8vw,120px)] tracking-[-0.02em] block -mt-2">Gatherings</span>
+                    </h2>
                 </div>
 
                 {/* Body Text Column */}
@@ -79,9 +80,9 @@ export default function AboutSection() {
                         Whether you require an intimate pre-wedding gathering or a comprehensive event management catering solution for hundreds of attendees, our expertise guarantees flawless execution.
                     </p>
                     <div className="mt-10">
-                        <a href="/menu" className="inline-block px-8 py-3 rounded-full border border-primary-text/30 hover:bg-primary-text hover:text-primary-bg transition-colors duration-300 font-sans text-[14px] uppercase tracking-wider">
+                        <Link href="/menu" className="inline-block px-8 py-3 rounded-full border border-primary-text/30 hover:bg-primary-text hover:text-primary-bg transition-colors duration-300 font-sans text-[14px] uppercase tracking-wider">
                             Explore Menu
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

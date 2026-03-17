@@ -127,6 +127,7 @@ export default function SadhyaDishesPost() {
 
             <div className="overflow-x-auto mb-8">
                 <table className="w-full text-left border-collapse border border-black/10">
+                    <caption className="text-left text-sm text-gray-500 mb-2">Sadhya portion quantities per 100 guests</caption>
                     <thead>
                         <tr className="border-b border-black/10 bg-black/5">
                             <th className="py-4 px-4 font-medium text-gray-900">Item</th>

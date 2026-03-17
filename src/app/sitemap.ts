@@ -1,20 +1,18 @@
-import { Metadata } from 'next';
 import { MetadataRoute } from 'next';
-import Link from 'next/link';
 
 export const SERVICES = [
     "wedding-catering-kochi",
     "corporate-catering-kochi",
-    "birthday-party-catering-kochi",
     "kerala-sadhya-catering",
-    "outdoor-catering-kerala",
+    "outdoor-catering-kochi",
 ];
 
 export const LOCATIONS = [
     "catering-services-kochi",
     "catering-services-ernakulam",
     "catering-services-aluva",
-    "catering-services-thrippunithura",
+    "catering-services-kakkanad",
+    "catering-services-edappally",
 ];
 
 export const BLOGS = [
@@ -59,6 +57,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.8,
+        },
+        {
+            url: `${CANONICAL_URL}/faq`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.6,
+        },
+        {
+            url: `${CANONICAL_URL}/gallery`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
         },
     ];
 
