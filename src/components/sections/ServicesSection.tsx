@@ -7,15 +7,42 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CAROUSEL_IMAGES = [
-    { id: 1, src: "/kerala_sadhya.png", alt: "Authentic Kerala Sadhya Catering Display", format: "landscape" },
-    { id: 2, src: "/elegant_biryani.png", alt: "Elegant Biryani Feast for Wedding Receptions", format: "portrait" },
-    { id: 3, src: "/kerala_event_setting.png", alt: "Premium Kochi Event Catering Setup", format: "portrait" },
-    { id: 4, src: "/kerala_seafood_prep.png", alt: "Refined Kerala Seafood Preparation Live Station", format: "landscape" },
-    { id: 5, src: "/composed_hospitality_staff.png", alt: "Professional Hospitality Service Staff", format: "portrait" },
-    { id: 6, src: "/elegant_biryani.png", alt: "Muted elegant biryani spread", format: "portrait" },
-    { id: 7, src: "/kerala_sadhya.png", alt: "Massive traditional sadhya layout", format: "landscape" },
-    { id: 8, src: "/kerala_event_setting.png", alt: "Twilight outdoor event setting", format: "portrait" },
-    { id: 9, src: "/composed_hospitality_staff.png", alt: "Staff setting the table", format: "portrait" },
+    { 
+        id: 1, 
+        src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1200&auto=format&fit=crop", 
+        alt: "Authentic rich Indian catering menu spread at an event in Kochi", 
+        format: "landscape" 
+    },
+    { 
+        id: 2, 
+        src: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800&auto=format&fit=crop", 
+        alt: "Traditional Indian Biryani served in an elegant pot for wedding catering", 
+        format: "portrait" 
+    },
+    { 
+        id: 3, 
+        src: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800&auto=format&fit=crop", 
+        alt: "Elite catering chef presenting a vibrant, authentic plated Indian dish", 
+        format: "portrait" 
+    },
+    { 
+        id: 4, 
+        src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop", 
+        alt: "Luxury wedding reception table seating with elegant catering decor", 
+        format: "landscape" 
+    },
+    { 
+        id: 5, 
+        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop", 
+        alt: "Beautiful outdoor feast setup for an intimate private engagement", 
+        format: "portrait" 
+    },
+    { 
+        id: 6, 
+        src: "https://images.unsplash.com/photo-1555244162-81d5f8da5a64?q=80&w=800&auto=format&fit=crop", 
+        alt: "Professional grand buffet displaying comprehensive culinary variety", 
+        format: "portrait" 
+    }
 ];
 
 export default function ServicesSection() {

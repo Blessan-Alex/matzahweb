@@ -32,18 +32,28 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Menu",
     "name": "Matzah Caterers Event Menu",
-    "description": "Complete list of catering services including Welcome Appetizers, Curated Feast Displays, Grand Buffets, and Traditional Sadhyas.",
+    "description": "Complete list of catering services including Welcome Drinks, Snacks, Mains & Breads, and Desserts.",
     "url": "https://www.matzahcaterers.in/menu",
     "hasMenuSection": [
         {
             "@type": "MenuSection",
-            "name": "Welcoming Appetizers",
-            "description": "Refined, handcrafted bites featuring authentic Malabar spices."
+            "name": "Welcome Drinks",
+            "description": "Refreshing fresh juices and drinks."
         },
         {
             "@type": "MenuSection",
-            "name": "Traditional & Family Style",
-            "description": "Multi-course Sadhyas on fresh banana leaves, alongside rich Biryani feasts."
+            "name": "Snacks",
+            "description": "Variety of delicious savory and sweet snacks."
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Mains & Breads",
+            "description": "Traditional breads, savory curries, rich biryanis, and full meals."
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Desserts",
+            "description": "Ice cream, traditional Indian sweets, and fresh fruits."
         }
     ]
 };

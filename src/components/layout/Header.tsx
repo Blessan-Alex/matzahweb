@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Circle, Menu } from "lucide-react";
+import { Circle, Menu, X } from "lucide-react";
 
 export default function Header() {
     const pathname = usePathname();
@@ -51,80 +51,94 @@ export default function Header() {
         };
     }, [isHomePage]);
 
+    // Handle body scroll locking when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => { document.body.style.overflow = 'auto'; };
+    }, [isMobileMenuOpen]);
+
     return (
-        <header
-            ref={headerRef}
-            className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center px-[4vw] py-[3vh] pointer-events-none transition-all duration-300 ${isDarkText ? "text-[#1A1817]" : "text-[#F0EBE2]"} ${isScrolled ? "bg-[#1A1817]/95 backdrop-blur-md shadow-md py-[2vh] text-[#F0EBE2]" : ""}`}
-        >
-            {/* Navbar Content */}
-            <div
-                ref={linksRef}
-                className="flex items-center gap-4 md:gap-10 pointer-events-auto w-full justify-between"
+        <>
+            <header
+                ref={headerRef}
+                className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center px-[4vw] lg:px-[4vw] py-[3vh] pointer-events-none transition-all duration-300 ${isDarkText ? "text-[#1A1817]" : "text-[#F0EBE2]"} ${isScrolled ? "bg-[#1A1817]/95 backdrop-blur-md shadow-md py-[2vh] text-[#F0EBE2]" : ""}`}
             >
-                {/* Brand Logo - On Left */}
-                <Link href="/" className="pointer-events-auto font-serif text-[28px] md:text-[32px] font-normal tracking-wide hover:opacity-80 transition-opacity">
-                    Matzah
-                </Link>
+                {/* Navbar Content */}
+                <div
+                    ref={linksRef}
+                    className="flex items-center gap-4 lg:gap-10 pointer-events-auto w-full justify-between"
+                >
+                    {/* Brand Logo - On Left */}
+                    <Link href="/" className="pointer-events-auto font-serif text-[26px] lg:text-[32px] font-normal tracking-wide hover:opacity-80 transition-opacity" onClick={() => setIsMobileMenuOpen(false)}>
+                        Matzah
+                    </Link>
 
-                <div className="flex items-center gap-4 md:gap-10">
-                    {/* Navigation Links (Desktop) */}
-                    <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8 font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto">
-                        {/* Services Dropdown Container */}
-                        <div className="group relative">
-                            <Link href="/#services" className="hover:opacity-70 transition-opacity flex items-center gap-1 cursor-pointer pb-4">
-                                Services
-                                <span className="transition-transform duration-300 group-hover:rotate-45 block">+</span>
-                            </Link>
+                    <div className="flex items-center gap-4 lg:gap-10">
+                        {/* Navigation Links (Desktop) */}
+                        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-6 xl:gap-8 font-sans text-[16px] font-medium pointer-events-auto">
+                            {/* Services Dropdown Container */}
+                            <div className="group relative">
+                                <Link href="/#services" className="hover:opacity-70 transition-opacity flex items-center gap-1 cursor-pointer pb-4">
+                                    Services
+                                    <span className="transition-transform duration-300 group-hover:rotate-45 block">+</span>
+                                </Link>
 
-                            {/* Dropdown Menu */}
-                            <div className="absolute top-[100%] left-0 w-[300px] bg-[#F0EBE2] text-[#1A1817] p-8 rounded-[20px] opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 ease-out flex flex-col gap-3 font-serif font-light text-[22px] md:text-[28px] leading-[1.2]">
-                                <Link href="/#private-engagements" className="hover:opacity-60 transition-opacity">Private Engagements</Link>
-                                <Link href="/#wedding-receptions" className="hover:opacity-60 transition-opacity">Wedding Receptions</Link>
-                                <Link href="/#corporate-conclaves" className="hover:opacity-60 transition-opacity">Corporate Conclaves</Link>
-                                <Link href="/#grand-celebrations" className="hover:opacity-60 transition-opacity">Grand Celebrations</Link>
+                                {/* Dropdown Menu */}
+                                <div className="absolute top-[100%] left-0 w-[300px] bg-[#F0EBE2] text-[#1A1817] p-8 rounded-[20px] opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 ease-out flex flex-col gap-3 font-serif font-light text-[22px] leading-[1.2]">
+                                    <Link href="/#private-engagements" className="hover:opacity-60 transition-opacity">Private Engagements</Link>
+                                    <Link href="/#wedding-receptions" className="hover:opacity-60 transition-opacity">Wedding Receptions</Link>
+                                    <Link href="/#corporate-conclaves" className="hover:opacity-60 transition-opacity">Corporate Conclaves</Link>
+                                    <Link href="/#grand-celebrations" className="hover:opacity-60 transition-opacity">Grand Celebrations</Link>
+                                </div>
                             </div>
+
+                            <Link href="/menu" className="hover:opacity-70 transition-opacity pb-4">
+                                Menu
+                            </Link>
+                            <Link href="/about" className="hover:opacity-70 transition-opacity pb-4">
+                                About Us
+                            </Link>
+                            <Link href="/blog" className="hover:opacity-70 transition-opacity pb-4">
+                                Blog
+                            </Link>
+                            <Link href="/gallery" className="hover:opacity-70 transition-opacity pb-4">
+                                Gallery
+                            </Link>
+                            <Link href="/faq" className="hover:opacity-70 transition-opacity pb-4">
+                                FAQs
+                            </Link>
+                        </nav>
+
+                        {/* CTA Button (Desktop) & Hamburger (Mobile) */}
+                        <div className="flex items-center gap-4">
+                            <a href="https://wa.me/918921038043" target="_blank" rel="noopener noreferrer nofollow" className="hidden lg:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium pointer-events-auto text-center items-center justify-center">
+                                Get In Touch
+                            </a>
+                            <button
+                                aria-label="Toggle Menu"
+                                className={`lg:hidden transition-all duration-200 pointer-events-auto min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-[8px] ${(isMobileMenuOpen || isDarkText || isScrolled) ? "text-[#1A1817]" : "text-[#F0EBE2]"} ${!isScrolled && !isDarkText && !isMobileMenuOpen ? "bg-black/30 backdrop-blur-md" : ""}`}
+                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                // High z-index so it stays readable when overlay is behind it
+                                style={{ zIndex: 10000, 
+                                    color: (isMobileMenuOpen || isScrolled && !isDarkText) ? "#1A1817" : undefined }}
+                            >
+                                {isMobileMenuOpen ? <X size={32} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
+                            </button>
                         </div>
-
-                        <Link href="/menu" className="hover:opacity-70 transition-opacity pb-4">
-                            Menu
-                        </Link>
-                        <Link href="/about" className="hover:opacity-70 transition-opacity pb-4">
-                            About Us
-                        </Link>
-                        <Link href="/blog" className="hover:opacity-70 transition-opacity pb-4">
-                            Blog
-                        </Link>
-                        <Link href="/gallery" className="hover:opacity-70 transition-opacity pb-4">
-                            Gallery
-                        </Link>
-                        <Link href="/faq" className="hover:opacity-70 transition-opacity pb-4">
-                            FAQs
-                        </Link>
-                    </nav>
-
-                    {/* CTA Button (Desktop) & Hamburger (Mobile) */}
-                    <div className="flex items-center gap-4">
-                        <a href="https://wa.me/918921038043" target="_blank" rel="noopener noreferrer nofollow" className="hidden md:inline-flex px-8 py-3 rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] md:text-[17px] font-medium pointer-events-auto text-center items-center justify-center">
-                            Get In Touch
-                        </a>
-                        <button
-                            className={`md:hidden transition-all duration-200 pointer-events-auto min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-[8px] ${!isScrolled && !isDarkText ? "bg-black/30 backdrop-blur-md" : ""}`}
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        >
-                            <Menu size={28} strokeWidth={1.5} />
-                        </button>
                     </div>
                 </div>
-            </div>
+            </header>
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`fixed inset-0 bg-[#F0EBE2] text-[#1A1817] z-[9998] flex flex-col justify-center items-center gap-8 transition-transform duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}`}
+                className={`fixed inset-0 bg-[#F0EBE2] text-[#1A1817] z-[9998] flex flex-col justify-center items-center gap-8 transition-transform duration-500 ease-in-out lg:hidden ${isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}`}
                 style={{ pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
             >
-                {/* Close Button or leave hamburger to toggle. We'll rely on hamburger since it stays fixed at top right */}
-
-                <nav aria-label="Mobile navigation" className="flex flex-col items-center gap-8 font-serif text-[32px] leading-[1.2]">
+                <nav aria-label="Mobile navigation" className="flex flex-col items-center gap-6 font-serif text-[clamp(28px,6vw,40px)] leading-[1.2]">
                     <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-70 transition-opacity">
                         Services<span className="sr-only"> Navigation</span>
                     </Link>
@@ -150,11 +164,11 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="mt-8 px-8 py-3 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-current hover:text-[#F0EBE2] font-sans text-[16px] font-medium"
+                    className="mt-6 px-10 py-4 flex items-center justify-center rounded-full border border-current transition-colors duration-300 hover:bg-[#1A1817] hover:text-[#F0EBE2] font-sans text-[17px] font-medium"
                 >
                     Get In Touch<span className="sr-only"> Now</span>
                 </a>
             </div>
-        </header>
+        </>
     );
 }
