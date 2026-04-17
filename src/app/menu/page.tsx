@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         url: "https://www.matzahcaterers.in/menu",
         images: [
             {
-                url: "https://www.matzahcaterers.in/logo.png",
+                url: "https://www.matzahcaterers.in/buffet.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Matzah Caterers - Event Catering Menu",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Catering Menu & Services | Matzah Caterers Kochi",
         description: "Explore our curated event catering menus, featuring authentic Kerala cuisine.",
-        images: ["https://www.matzahcaterers.in/logo.png"],
+        images: ["https://www.matzahcaterers.in/buffet.jpg"],
     },
     alternates: {
         canonical: "https://www.matzahcaterers.in/menu",
