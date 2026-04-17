@@ -39,7 +39,7 @@ const CAROUSEL_IMAGES = [
     },
     { 
         id: 6, 
-        src: "https://images.unsplash.com/photo-1555244162-81d5f8da5a64?q=80&w=800&auto=format&fit=crop", 
+        src: "https://images.unsplash.com/photo-1547496502-affa22d38842?q=80&w=800&auto=format&fit=crop", 
         alt: "Professional grand buffet displaying comprehensive culinary variety", 
         format: "portrait" 
     }

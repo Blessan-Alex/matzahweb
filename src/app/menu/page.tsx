@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "Explore our curated menus, from welcoming appetizers and traditional family-style Sadhyas to formal plated elegance. Authentic Kerala food catering.",
     openGraph: {
         title: "Catering Menu & Services | Matzah Caterers Kochi",
-        description: "Explore our curated event catering menus, featuring authentic Kerala cuisine and Michelin-inspired arrangements.",
+        description: "Explore our curated event catering menus, featuring tasty and authentic Kerala cuisine.",
         url: "https://www.matzahcaterers.in/menu",
         images: [
             {

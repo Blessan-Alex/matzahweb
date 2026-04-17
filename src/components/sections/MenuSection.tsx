@@ -110,6 +110,24 @@ export default function MenuSection() {
             );
         });
 
+        const calloutBlock = document.querySelector('.menu-callout');
+        if (calloutBlock) {
+            gsap.fromTo(calloutBlock.children,
+                { y: 20, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: calloutBlock,
+                        start: "top 90%",
+                    }
+                }
+            );
+        }
+
         return () => {
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
@@ -155,6 +173,34 @@ export default function MenuSection() {
                         </div>
                     ))}
                 </div>
+
+                {/* Additional Information Callout */}
+                <div className="menu-callout mt-20 md:mt-32 pt-12 md:pt-16 border-t border-primary-text/15 text-center flex flex-col items-center">
+                    <h4 className="font-serif text-[clamp(28px,4vw,36px)] leading-[1.1] text-primary-text mb-4">
+                        Custom Packages & Pricing
+                    </h4>
+                    <p className="font-sans text-[16px] md:text-[17px] text-primary-text/70 max-w-2xl mx-auto mb-6 leading-relaxed">
+                        Prices are negotiable and can be customized to fit your specific needs. The final rate will depend on your total plate count and selected menu items. 
+                    </p>
+                    <p className="font-sans text-[16px] md:text-[17px] text-primary-text/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+                        We also offer interactive live food counters featuring dynamic, freshly prepared delicacies made to order, tailored exactly to your event's vision.
+                    </p>
+                    
+                    <div className="flex flex-col items-center gap-5">
+                        <p className="font-serif italic text-primary-text/70 tracking-wide text-[18px]">
+                            To inquire about our rates and custom packages:
+                        </p>
+                        <a 
+                            href="https://wa.me/918921038043" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex mt-2 px-10 py-3 rounded-full border border-primary-text transition-colors duration-300 hover:bg-[#1A1817] hover:text-[#F0EBE2] font-sans text-[15px] font-medium tracking-wider uppercase"
+                        >
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

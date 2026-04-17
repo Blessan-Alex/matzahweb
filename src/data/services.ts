@@ -32,7 +32,7 @@ export const servicesData = {
         image: "/composed_hospitality_staff.png",
         imageAlt: "Professional corporate catering staff in Kochi",
         packages: [
-            { name: "Executive Plated Lunches", guests: "20-100", price: "Custom Package", features: ["Michelin-inspired arrangement", "VIP Service Staff", "Customized Menus"] },
+            { name: "Executive Plated Lunches", guests: "20-100", price: "Custom Package", features: ["Tasty & Authentic Kerala Food", "VIP Service Staff", "Customized Menus"] },
             { name: "Conference Buffet", guests: "50-1000+", price: "Custom Package", features: ["Efficient Crowd Management", "Dietary Accommodations", "Live Refreshment Stations"] },
             { name: "Office Party Finger Foods", guests: "30-500", price: "Custom Package", features: ["Interactive Stations", "Premium Starters", "Easy-to-eat Formats"] }
         ],
